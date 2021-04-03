@@ -13,18 +13,26 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.agriculturalproject.GlobalClasses.Global;
+import com.example.agriculturalproject.Models.Users;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
     EditText email_phone , password ;
     TextView forget ,crate;
     Button login;
     FirebaseAuth fAuth;
+    DatabaseReference databaseReference;
 
     private FirebaseAuth mAuth;
     @Override
@@ -39,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
         crate = findViewById(R.id.edt_cna);
         login = findViewById(R.id.btn_log);
         fAuth = FirebaseAuth.getInstance();
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");//access to all data about this user
+
 
         crate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +82,19 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(MainActivity.this, "The password and email correct", Toast.LENGTH_SHORT).show();
+                            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    Users user = snapshot.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).getValue(Users.class);
+                                    Global.currentUser = user;
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+
                         }
                         else
                             Toast.makeText(MainActivity.this, "The password or email is error", Toast.LENGTH_SHORT).show();
