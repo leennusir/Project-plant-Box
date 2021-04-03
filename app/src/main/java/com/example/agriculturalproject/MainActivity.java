@@ -85,8 +85,10 @@ public class MainActivity extends AppCompatActivity {
                             databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                    Users user = snapshot.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).getValue(Users.class);
+                                    Users user = snapshot.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).getValue(Users.class);//control in data(update,delete,insert )
                                     Global.currentUser = user;
+                                    startActivity(new Intent(MainActivity.this , Home.class));//access to home page(drawable)
+
                                 }
 
                                 @Override
