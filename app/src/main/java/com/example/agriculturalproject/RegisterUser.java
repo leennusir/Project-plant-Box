@@ -7,8 +7,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.agriculturalproject.Models.Users;
@@ -18,10 +20,15 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Locale;
+
 public class RegisterUser extends AppCompatActivity {
     EditText FirstName , LastName , EmailPhone,Password_reg, Confirm_reg ;
     Button SignUp;
     private FirebaseAuth mAuth;
+    Spinner select;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +42,26 @@ public class RegisterUser extends AppCompatActivity {
 
         SignUp = findViewById(R.id.btn_reg_signup);
         mAuth = FirebaseAuth.getInstance();
+        select = findViewById(R.id.spinner_id);
+
+         //SELECT CITY BUTTON (CODE)
+        Locale[] locales = Locale.getAvailableLocales();//eVERY AVALBEL LOCATION
+        ArrayList<String> countries = new ArrayList<String>();
+        for (Locale locale : locales) {
+            String country = locale.getDisplayCountry();
+            if (country.trim().length() > 0 && !countries.contains(country)) {//IF COUNTRY LENGTH LESS THAN 0 AND NOT EXIST IN LIST
+                countries.add(country);
+            }
+        }
+
+        Collections.sort(countries);
+
+        ArrayAdapter<String> countryAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, countries);
+
+        countryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the your spinner
+        select.setAdapter(countryAdapter);
 
         SignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +71,7 @@ public class RegisterUser extends AppCompatActivity {
                 String edt_reg_email_str = EmailPhone.getText().toString().trim();
                 String edt_reg_pass_str = Password_reg.getText().toString().trim();
                 String edt_reg_confirm_str = Confirm_reg.getText().toString().trim();
+                String edt_reg_select_city = select.getSelectedItem().toString();
 
                 if (edt_reg_f_name_str.isEmpty()){
                     Toast.makeText(RegisterUser.this, "The First Name Is Empty", Toast.LENGTH_SHORT).show();
@@ -91,7 +119,7 @@ public class RegisterUser extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(RegisterUser.this, "The record success", Toast.LENGTH_SHORT).show();
-                            Users stu = new Users(edt_reg_f_name_str , edt_reg_l_name_str , edt_reg_email_str ,edt_reg_pass_str);//Object from record (insert realtime database)
+                            Users stu = new Users(edt_reg_f_name_str , edt_reg_l_name_str , edt_reg_email_str ,edt_reg_pass_str,edt_reg_select_city);//Object from record (insert realtime database)
                             FirebaseDatabase.getInstance().getReference("Users").
                                     child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(stu).
                                     addOnCompleteListener(new OnCompleteListener<Void>() {
