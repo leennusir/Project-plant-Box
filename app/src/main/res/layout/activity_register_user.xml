@@ -4,94 +4,105 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/signup"
+    android:foregroundTint="#FFFFFF"
     tools:context=".RegisterUser">
 
     <EditText
         android:id="@+id/edt_reg_first_name"
         android:layout_width="134dp"
         android:layout_height="42dp"
+        android:background="@color/cardview_shadow_end_color"
         android:ems="10"
-        android:hint="First Name"
         android:inputType="textPersonName"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.129"
+        app:layout_constraintHorizontal_bias="0.173"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.208" />
+        app:layout_constraintVertical_bias="0.187" />
 
     <EditText
         android:id="@+id/edt_reg_last_name"
         android:layout_width="153dp"
         android:layout_height="41dp"
+        android:background="@color/cardview_shadow_end_color"
         android:ems="10"
-        android:hint="Last Name"
         android:inputType="textPersonName"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.779"
+        app:layout_constraintHorizontal_bias="0.813"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.207" />
+        app:layout_constraintVertical_bias="0.188" />
 
     <EditText
         android:id="@+id/edt_reg_email_phone"
         android:layout_width="339dp"
         android:layout_height="47dp"
+        android:background="@color/cardview_shadow_end_color"
         android:ems="10"
-        android:hint="Email "
         android:inputType="textPersonName"
-        android:textAlignment="textStart"
+        android:textAlignment="viewStart"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.318" />
+        app:layout_constraintVertical_bias="0.309" />
 
     <EditText
         android:id="@+id/edt_reg_pass"
-        android:layout_width="319dp"
-        android:layout_height="48dp"
+        android:layout_width="334dp"
+        android:layout_height="42dp"
+        android:background="@color/cardview_shadow_end_color"
         android:ems="10"
-        android:hint="Password"
         android:inputType="textPassword"
-        android:textAlignment="textStart"
+        android:textAlignment="viewStart"
         android:textAllCaps="false"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.413"
+        app:layout_constraintHorizontal_bias="0.623"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.469" />
+        app:layout_constraintVertical_bias="0.432" />
 
     <EditText
         android:id="@+id/edt_reg_pass_confirm"
-        android:layout_width="310dp"
-        android:layout_height="38dp"
+        android:layout_width="333dp"
+        android:layout_height="39dp"
+        android:background="@color/cardview_shadow_end_color"
         android:ems="10"
-        android:hint="Confirm-Password"
         android:inputType="textPassword"
-        android:textAlignment="textStart"
+        android:textAlignment="viewStart"
+        android:textColor="#FFFFFF"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.356"
+        app:layout_constraintHorizontal_bias="0.615"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.575" />
+        app:layout_constraintVertical_bias="0.547" />
 
     <Button
         android:id="@+id/btn_reg_signup"
-        android:layout_width="130dp"
-        android:layout_height="50dp"
+        android:layout_width="287dp"
+        android:layout_height="45dp"
+        android:backgroundTint="#FFFFFF"
+        android:drawableTint="#FFFFFF"
         android:text="Sign Up"
-        android:textSize="18sp"
+        android:textColor="#00692B"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.466"
@@ -101,27 +112,16 @@
 
     <Spinner
         android:id="@+id/spinner_id"
-        android:layout_width="280dp"
-        android:layout_height="41dp"
+        android:layout_width="329dp"
+        android:layout_height="43dp"
+        android:foregroundTint="#FFFFFF"
+        android:scrollbarThumbHorizontal="@color/white"
+        android:scrollbarThumbVertical="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.274"
+        app:layout_constraintHorizontal_bias="0.585"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.737" />
+        app:layout_constraintVertical_bias="0.671" />
 
-    <TextView
-        android:id="@+id/HedarEmail"
-        android:layout_width="116dp"
-        android:layout_height="21dp"
-        android:text="Select City"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.13"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.658" />
 </androidx.constraintlayout.widget.ConstraintLayout>

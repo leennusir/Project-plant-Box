@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/home_icon"
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_addBox"
@@ -14,15 +15,16 @@
             android:title="Add New Box" />
         <item
             android:id="@+id/nav_aboutUs"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="About Us" />
+            android:icon="@drawable/info_icon"
+            android:title="About Us"
+            app:showAsAction="always" />
         <item
             android:id="@+id/nav_contacts"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="contacts" />
+            android:icon="@drawable/phone_icon"
+            android:title="Contacts" />
         <item
             android:id="@+id/PrivatePolicy"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="private policy" />
+            android:icon="@drawable/plicy_icon"
+            android:title="Policy" />
     </group>
 </menu>
