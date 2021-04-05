@@ -114,6 +114,7 @@
         android:id="@+id/spinner_id"
         android:layout_width="329dp"
         android:layout_height="43dp"
+        android:backgroundTint="@color/white"
         android:foregroundTint="#FFFFFF"
         android:scrollbarThumbHorizontal="@color/white"
         android:scrollbarThumbVertical="@color/white"
