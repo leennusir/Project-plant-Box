@@ -119,7 +119,7 @@ public class RegisterUser extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(RegisterUser.this, "The record success", Toast.LENGTH_SHORT).show();
-                            Users stu = new Users(edt_reg_f_name_str , edt_reg_l_name_str , edt_reg_email_str ,edt_reg_pass_str,edt_reg_select_city);//Object from record (insert realtime database)
+                            Users stu = new Users(edt_reg_f_name_str , edt_reg_l_name_str , edt_reg_email_str ,edt_reg_pass_str,edt_reg_select_city,"https://i.ibb.co/PNJXysd/blankprofilepicture973460640.png");//Object from record (insert realtime database)
                             FirebaseDatabase.getInstance().getReference("Users").
                                     child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(stu).
                                     addOnCompleteListener(new OnCompleteListener<Void>() {

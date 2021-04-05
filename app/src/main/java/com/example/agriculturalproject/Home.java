@@ -1,9 +1,11 @@
 package com.example.agriculturalproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -11,6 +13,7 @@ import com.example.agriculturalproject.GlobalClasses.Global;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.squareup.picasso.Picasso;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -25,7 +28,8 @@ import androidx.appcompat.widget.Toolbar;
 public class Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private AppBarConfiguration mAppBarConfiguration;
-    TextView name , hedarEmail;
+    TextView name , hedarEmail; //
+    ImageView imageView;
 
 
     @Override
@@ -58,6 +62,10 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         hedarEmail = headerView.findViewById(R.id.HedarEmail);
         hedarEmail.setText(Global.currentUser.getEmail());
+        imageView = headerView.findViewById(R.id.imageViewUser);
+        Picasso.get().load(Global.currentUser.getImg()).into(imageView);//to put defualt image
+
+
 
 
 
@@ -89,9 +97,9 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             Toast.makeText(this, "This is home", Toast.LENGTH_SHORT).show();
 
         }
-        else if (id == R.id.nav_contacts)
+        else if (id == R.id.nav_Profile)
         {
-            Toast.makeText(this, "This is contacts ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "This is my profile ", Toast.LENGTH_SHORT).show();
 
         }
         else if (id == R.id.nav_addBox)
@@ -99,16 +107,13 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             Toast.makeText(this, "This is add new box ", Toast.LENGTH_SHORT).show();
 
         }
-        else if( id ==R.id.PrivatePolicy)
+        else if( id == R.id.nav_Logout)
         {
-            Toast.makeText(this, "This is PrivacyPolicy  ", Toast.LENGTH_SHORT).show();
+            Global.currentUser = null;
+            startActivity(new Intent(Home.this , MainActivity.class));
 
         }
-        else if( id ==R.id.nav_aboutUs)
-        {
-            Toast.makeText(this, "This is about us  ", Toast.LENGTH_SHORT).show();
 
-        }
         return true;
     }
 }

@@ -11,20 +11,17 @@
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_addBox"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/icons8addcolumn50"
             android:title="Add New Box" />
         <item
-            android:id="@+id/nav_aboutUs"
-            android:icon="@drawable/info_icon"
-            android:title="About Us"
+            android:id="@+id/nav_Profile"
+            android:icon="@drawable/profile_icon"
+            android:title="Profile"
             app:showAsAction="always" />
+
         <item
-            android:id="@+id/nav_contacts"
-            android:icon="@drawable/phone_icon"
-            android:title="Contacts" />
-        <item
-            android:id="@+id/PrivatePolicy"
-            android:icon="@drawable/plicy_icon"
-            android:title="Policy" />
+            android:id="@+id/nav_Logout"
+            android:icon="@drawable/log_out_icon"
+            android:title="Logout" />
     </group>
 </menu>
