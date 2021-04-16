@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 import com.example.agriculturalproject.Models.Users;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
@@ -29,6 +31,7 @@ public class RegisterUser extends AppCompatActivity {
     Button SignUp;
     private FirebaseAuth mAuth;
     Spinner select;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +62,7 @@ public class RegisterUser extends AppCompatActivity {
         ArrayAdapter<String> countryAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, countries);
 
-        countryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        countryAdapter.setDropDownViewResource(R.layout.spinner_layout);
         // Apply the adapter to the your spinner
         select.setAdapter(countryAdapter);
 
@@ -120,7 +123,7 @@ public class RegisterUser extends AppCompatActivity {
                         if(task.isSuccessful()){
                             Toast.makeText(RegisterUser.this, "The record success", Toast.LENGTH_SHORT).show();
                             Users stu = new Users(edt_reg_f_name_str , edt_reg_l_name_str , edt_reg_email_str ,edt_reg_pass_str,edt_reg_select_city,"https://i.ibb.co/PNJXysd/blankprofilepicture973460640.png");//Object from record (insert realtime database)
-                            FirebaseDatabase.getInstance().getReference("Users").
+                            FirebaseDatabase.getInstance().getReference("Users").//هو المسؤول عن اضافة كلاسuser   في fb
                                     child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(stu).
                                     addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
@@ -145,12 +148,24 @@ public class RegisterUser extends AppCompatActivity {
                     }
                 });
 
-
-
-
-
-
             }
         });
+        BottomNavigationView btmNav = findViewById(R.id.bottom_register);
+        btmNav.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+            @Override
+            public void onNavigationItemReselected(@NonNull MenuItem item) {
+                switch (item.getItemId())
+                {
+                    case R.id.register_back:
+                        finish();
+
+                        break;
+                }
+
+            }
+
+        });
+
+
     }
 }
