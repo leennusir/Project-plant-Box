@@ -63,7 +63,7 @@
         android:background="@color/cardview_shadow_end_color"
         android:ems="10"
         android:hint="Email or Phone Number"
-
+        android:text="leen.nsser99@gmail.com"
         android:inputType="textPersonName"
         android:textAlignment="viewStart"
         android:textAllCaps="false"
@@ -84,6 +84,7 @@
         android:background="@color/cardview_shadow_end_color"
         android:ems="10"
         android:hint="Password"
+        android:text="123456"
         android:inputType="textPassword"
         android:singleLine="true"
         android:textAlignment="viewStart"

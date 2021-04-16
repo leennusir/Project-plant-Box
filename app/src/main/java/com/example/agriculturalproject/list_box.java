@@ -1,13 +1,21 @@
 package com.example.agriculturalproject;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.agriculturalproject.Adapters.Adapter_Boxes;
@@ -15,24 +23,37 @@ import com.example.agriculturalproject.InterFace.ItemClickListener;
 import com.example.agriculturalproject.Models.Boxes;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.razorpay.Checkout;
+import com.razorpay.PaymentResultListener;
 import com.squareup.picasso.Picasso;
 
-public class list_box extends AppCompatActivity {
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+
+public class list_box extends AppCompatActivity implements PaymentResultListener {
     RecyclerView recyclerBoxes;
     DatabaseReference Box;//to get boxes from firebase
     FirebaseRecyclerAdapter<Boxes, Adapter_Boxes> related_Boxes ; //Boxes = class
     //Adapter_Boxes = class
     // connect between Boxes and adapter
+
+
+
+    EditText name;
+    Spinner   plant_name;//select the plant
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_box);
-
-                recyclerBoxes = findViewById(R.id.recycle_box);
+        recyclerBoxes = findViewById(R.id.recycle_box);
         recyclerBoxes.setHasFixedSize(true);//to make recyclerview Fixed
-        recyclerBoxes.setLayoutManager(new GridLayoutManager(this , 2));//2 card in the same line
+        recyclerBoxes.setLayoutManager(new GridLayoutManager(this , 2));//1 or any num card in the same line
         Box = FirebaseDatabase.getInstance().getReference("Boxes"); //Boxes table from firebase
         getBoxes(); //function(call)
 
@@ -42,16 +63,14 @@ public class list_box extends AppCompatActivity {
             public void onNavigationItemReselected(@NonNull MenuItem item) {
                 switch (item.getItemId())
                 {
-                    case R.id.back:
+                    case R.id.back://back to last page
                         finish();
 
                         break;
-                    case R.id.Home:
-                        Toast.makeText(list_box.this, "11", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.my_table:
-                        Toast.makeText(list_box.this, "1dd1", Toast.LENGTH_SHORT).show();
 
+                    case R.id.my_table://add box button
+
+                        add_boxes();
                         break;
                 }
 
@@ -60,15 +79,80 @@ public class list_box extends AppCompatActivity {
         });
 
     }
+    public void add_boxes(){
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(list_box.this);
+        alertDialog.setTitle("Add new Boxes");
+        alertDialog.setMessage("Please fill full information");
+        LayoutInflater inflater = this.getLayoutInflater();
+        View add_box_layout = inflater.inflate(R.layout.add_boxes,null);//from add_box.xml :get edt_box and selection ,put in this dialog.
+        name = add_box_layout.findViewById(R.id.edt_name_box);
+        plant_name = add_box_layout.findViewById(R.id.edt_plant_name);
+        ArrayList<String> plants = new ArrayList<String>();
+        plants.add("Apple");
+        plants.add("Mushroom");
+        plants.add("Banana");
+        plants.add("Strawberries");
+        plants.add("Orange");
+        plants.add("Watermelon");
+        plants.add("Cherries");
+        ArrayAdapter<String> plantAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, plants);
+        plantAdapter.setDropDownViewResource(R.layout.spinner_layout);
+        plant_name.setAdapter(plantAdapter);
+//
+        alertDialog.setView(add_box_layout);
+        alertDialog.setIcon(R.drawable.icons8_plant_96);
+        alertDialog.setPositiveButton("Add Box", new DialogInterface.OnClickListener() {// add box button
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // payment library
+                Checkout checkout = new Checkout();// checkout class
+                checkout.setKeyID("rzp_test_C2EodRkMQfOxSf");//from website
+//                checkout.setImage(R.id.rzp_innerbox);
+                JSONObject object = new JSONObject();
+                String Samount = "50";
+                int a = Math.round(Float.parseFloat(Samount)*50);
+                try {
+                    //PAYMENT SETTING
+                    object.put("name","Smart Farm Payment");
+                    object.put("description","This is pay box");
+                    object.put("theme.color","#024D21");
+                    object.put("currency","USD");
+                    object.put("amount",a);
+                    object.put("prefill.contact","0797652607");
+                    object.put("prefill.email","leen.nsser99@gmail.com");
+                    checkout.open(list_box.this,object);
+
+                } catch (JSONException e) {
+                    // LIBRARY
+                    //SHOW ERROR
+                    e.printStackTrace();
+                }
+//                if(name.getText().toString().isEmpty()){
+//                    return;
+//                }
+//                if(plant_name.getText().toString().isEmpty()){
+//                    return;
+//                }
+
+            }
+        });
+        alertDialog.show();
+    }
+
+
+
     private void getBoxes()
     {
-        related_Boxes = new FirebaseRecyclerAdapter<Boxes, Adapter_Boxes>(Boxes.class , R.layout.card_box , Adapter_Boxes.class ,Box) {
+        related_Boxes = new FirebaseRecyclerAdapter<Boxes, Adapter_Boxes>(Boxes.class , R.layout.card_box ,
+                Adapter_Boxes.class ,Box.orderByChild("userId").equalTo(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
                                                                          // "Boxes" = class here(img ,name)
 
             @Override
             protected void populateViewHolder(Adapter_Boxes adapter_boxes, Boxes boxes, int i) {
                 Picasso.get().load(boxes.getImg()).into(adapter_boxes.img_box);//to put defualt image
                 adapter_boxes.name_box.setText(boxes.getName());
+                adapter_boxes.nameplant.setText(boxes.getPlant());
                 adapter_boxes.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int pos, boolean isLongClick) {
@@ -78,5 +162,23 @@ public class list_box extends AppCompatActivity {
             }
         };
         recyclerBoxes.setAdapter(related_Boxes);
+    }
+
+    @Override
+    public void onPaymentSuccess(String s) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Pay id");
+        builder.setMessage("Successful purchase");
+        Boxes boxes = new Boxes("https://i.imgur.com/8K3n51X.jpg",
+                name.getText().toString(),
+                plant_name.getSelectedItem().toString(),
+                FirebaseAuth.getInstance().getCurrentUser().getUid());
+        Box.push().setValue(boxes);
+        builder.show();
+    }
+
+    @Override
+    public void onPaymentError(int i, String s) {
+
     }
 }

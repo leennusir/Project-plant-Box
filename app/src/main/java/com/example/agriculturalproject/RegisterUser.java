@@ -62,7 +62,7 @@ public class RegisterUser extends AppCompatActivity {
         ArrayAdapter<String> countryAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, countries);
 
-        countryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        countryAdapter.setDropDownViewResource(R.layout.spinner_layout);
         // Apply the adapter to the your spinner
         select.setAdapter(countryAdapter);
 
@@ -148,11 +148,6 @@ public class RegisterUser extends AppCompatActivity {
                     }
                 });
 
-
-
-
-
-
             }
         });
         BottomNavigationView btmNav = findViewById(R.id.bottom_register);
@@ -161,15 +156,8 @@ public class RegisterUser extends AppCompatActivity {
             public void onNavigationItemReselected(@NonNull MenuItem item) {
                 switch (item.getItemId())
                 {
-                    case R.id.back:
+                    case R.id.register_back:
                         finish();
-
-                        break;
-                    case R.id.Home:
-                        Toast.makeText(RegisterUser.this, "11", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.my_table:
-                        Toast.makeText(RegisterUser.this, "1dd1", Toast.LENGTH_SHORT).show();
 
                         break;
                 }

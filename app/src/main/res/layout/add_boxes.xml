@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="4dp"
+    >
+
+
+    <LinearLayout
+        android:layout_margin="20dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/edt_name_box"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Enter Box Name"
+            android:inputType="text"
+            android:text=""
+
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/colorPrimary"
+            android:textSize="20sp"
+
+            />
+
+        <Spinner
+            android:id="@+id/edt_plant_name"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:backgroundTint="@color/white"
+            android:foregroundTint="@color/white"
+            android:scrollbarThumbHorizontal="@color/white"
+            android:scrollbarThumbVertical="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.585"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.671" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="89dp"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

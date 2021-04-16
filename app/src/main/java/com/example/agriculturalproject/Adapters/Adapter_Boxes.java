@@ -12,7 +12,7 @@ import com.example.agriculturalproject.R;
 
 public class Adapter_Boxes extends RecyclerView.ViewHolder implements View.OnClickListener {
    public ImageView img_box ;
-    public TextView name_box ;
+    public TextView name_box , nameplant ;
     private ItemClickListener itemClickListener;
     public void setItemClickListener(ItemClickListener itemClickListener) {// when i put on the box; get action
         this.itemClickListener = itemClickListener;
@@ -22,6 +22,7 @@ public class Adapter_Boxes extends RecyclerView.ViewHolder implements View.OnCli
         super(itemView);
         img_box = itemView.findViewById(R.id.box_image);
         name_box = itemView.findViewById(R.id.box_name);
+        nameplant = itemView.findViewById(R.id.name_plant);
         itemView.setOnClickListener(this);//
 
 

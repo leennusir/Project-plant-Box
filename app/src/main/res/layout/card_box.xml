@@ -18,7 +18,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:backgroundTint="@color/green"
         android:gravity="center"
         android:orientation="vertical"
@@ -55,6 +55,25 @@
             app:layout_constraintEnd_toEndOf="@+id/box_image"
             app:layout_constraintStart_toStartOf="@+id/box_image"
             app:layout_constraintTop_toBottomOf="@+id/box_image">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/name_plant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5dp"
+            android:background="@color/forth"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Name of Menu"
+            android:textColor="@color/colorPrimary"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/box_name"
+            app:layout_constraintStart_toStartOf="@+id/box_name"
+            app:layout_constraintTop_toBottomOf="@+id/box_name">
 
         </TextView>
 
