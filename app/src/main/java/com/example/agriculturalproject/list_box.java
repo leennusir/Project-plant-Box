@@ -142,8 +142,7 @@ public class list_box extends AppCompatActivity implements PaymentResultListener
 
 
 
-    private void getBoxes()
-    {
+    private void getBoxes(){
         related_Boxes = new FirebaseRecyclerAdapter<Boxes, Adapter_Boxes>(Boxes.class , R.layout.card_box ,
                 Adapter_Boxes.class ,Box.orderByChild("userId").equalTo(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
                                                                          // "Boxes" = class here(img ,name)

@@ -51,14 +51,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         setContentView(R.layout.activity_home);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -117,7 +110,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         }
         else if (id == R.id.nav_Profile)
         {
-            Toast.makeText(this, "This is my profile ", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(Home.this , Profile.class));
 
         }
         else if (id == R.id.nav_addBox)
