@@ -9,13 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AgriculturalProject">
-        <activity android:name=".Profile"></activity>
+        <activity android:name=".MainHome"></activity>
+        <activity android:name=".Profile" />
         <activity android:name=".list_box" />
         <activity android:name=".MainActivity2" />
-        <activity
-            android:name=".Home"
-            android:label="@string/title_activity_home"
-            android:theme="@style/Theme.AgriculturalProject.NoActionBar" />
         <activity android:name=".RegisterUser" />
         <activity android:name=".MainActivity">
             <intent-filter>

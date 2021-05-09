@@ -42,10 +42,12 @@ public class RegisterUser extends AppCompatActivity {
         EmailPhone = findViewById(R.id.edt_reg_email_phone);
         Password_reg = findViewById(R.id.edt_reg_pass);
         Confirm_reg = findViewById(R.id.edt_reg_pass_confirm);
-
         SignUp = findViewById(R.id.btn_reg_signup);
-        mAuth = FirebaseAuth.getInstance();
         select = findViewById(R.id.spinner_id);
+
+
+        mAuth = FirebaseAuth.getInstance();
+
 
          //SELECT CITY BUTTON (CODE)
         Locale[] locales = Locale.getAvailableLocales();//eVERY AVALBEL LOCATION

@@ -3,9 +3,12 @@ package com.example.agriculturalproject;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,9 +19,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.agriculturalproject.Adapters.Adapter_Boxes;
+import com.example.agriculturalproject.GlobalClasses.Global;
 import com.example.agriculturalproject.InterFace.ItemClickListener;
 import com.example.agriculturalproject.Models.Boxes;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -44,18 +49,25 @@ public class list_box extends AppCompatActivity implements PaymentResultListener
     // connect between Boxes and adapter
 
 
+    DrawerLayout drawerLayout ;
 
     EditText name;
     Spinner   plant_name;//select the plant
+    TextView x ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_box);
+        drawerLayout = findViewById(R.id.main_drawer_layout);
+        getSupportActionBar().hide();
+
         recyclerBoxes = findViewById(R.id.recycle_box);
         recyclerBoxes.setHasFixedSize(true);//to make recyclerview Fixed
         recyclerBoxes.setLayoutManager(new GridLayoutManager(this , 2));//1 or any num card in the same line
         Box = FirebaseDatabase.getInstance().getReference("Boxes"); //Boxes table from firebase
         getBoxes(); //function(call)
+        x = findViewById(R.id.xxxxx);
+        x.setText(Global.currentUser.getEmail());
 
         BottomNavigationView btmNav = findViewById(R.id.bottom_nav_list_box);
         btmNav.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
@@ -180,4 +192,45 @@ public class list_box extends AppCompatActivity implements PaymentResultListener
     public void onPaymentError(int i, String s) {
 
     }
+
+    public void OpenMenu(View view){
+        openDrawer(drawerLayout);
+    }
+
+    private static void openDrawer(DrawerLayout drawerLayout) {
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+    public void ClickLogo(View view){
+        closeDrawer(drawerLayout);
+    }
+    public void ClickProfile(View view){
+        redirectActivity(this,Profile.class);
+    }
+
+    private void redirectActivity(Activity activity , Class aClass) {
+        Intent obj = new Intent(activity,aClass);
+        obj.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        activity.startActivity(obj);
+    }
+
+    public void ClickHome(View view){
+        redirectActivity(this,MainHome.class);
+    }
+    public void ClickLogout(View view){
+        redirectActivity(this,MainActivity.class);
+
+    }
+
+    private static void closeDrawer(DrawerLayout drawerLayout) {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        closeDrawer(drawerLayout);
+    }
+
 }

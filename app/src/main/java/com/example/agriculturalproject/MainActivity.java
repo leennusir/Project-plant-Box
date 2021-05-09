@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                                     Users user = snapshot.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).getValue(Users.class);//control in data(update,delete,insert )
                                     Global.currentUser = user;
-                                    startActivity(new Intent(MainActivity.this , Home.class));//access to home page(drawable)
+                                    startActivity(new Intent(MainActivity.this , MainHome.class));//access to home page(drawable)
 
                                 }
 
