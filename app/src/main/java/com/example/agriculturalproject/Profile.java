@@ -10,12 +10,9 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,10 +29,6 @@ import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
-import com.razorpay.Checkout;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -50,7 +43,7 @@ public class Profile extends AppCompatActivity {
     Button update ,update_password;
     EditText new_password , old_password , confirm_password;
     DrawerLayout drawerLayout ;
-    TextView x ;
+    TextView nav_email , nav_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,8 +58,11 @@ public class Profile extends AppCompatActivity {
         FirstName.setText(Global.currentUser.getFirstName());//PUT THE USER CLASS INFO. IN PROFILE PAGE
         LastName.setText(Global.currentUser.getLastName());
         drawerLayout = findViewById(R.id.main_drawer_layout);
-        x = findViewById(R.id.xxxxx);
-        x.setText(Global.currentUser.getEmail());
+        nav_email = findViewById(R.id.txt_view_email);
+        nav_email.setText(Global.currentUser.getEmail());
+
+        nav_name = findViewById(R.id.txt_view_name);
+        nav_name.setText(Global.currentUser.getFirstName() + " "+ Global.currentUser.getLastName() );
         getSupportActionBar().hide(); // hide the title bar
 
         //SELECT CITY BUTTON (CODE)

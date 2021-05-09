@@ -1,7 +1,6 @@
 package com.example.agriculturalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -13,32 +12,26 @@ import android.widget.TextView;
 
 import com.example.agriculturalproject.GlobalClasses.Global;
 
-public class MainHome extends AppCompatActivity {
+public class Monitor extends AppCompatActivity {
     DrawerLayout drawerLayout ;
-    TextView nav_email,nav_name;
-
-    CardView card1 , card2  ;
+    TextView nav_email ,nav_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_home);
-        getSupportActionBar().hide();
-        drawerLayout = findViewById(R.id.main_drawer_layout);
+        setContentView(R.layout.activity_monitor);
 
+        drawerLayout = findViewById(R.id.main_drawer_layout);
         nav_email = findViewById(R.id.txt_view_email);
         nav_email.setText(Global.currentUser.getEmail());
         nav_name = findViewById(R.id.txt_view_name);
         nav_name.setText(Global.currentUser.getFirstName() + " "+ Global.currentUser.getLastName() );
-        card1 = findViewById(R.id.cardView1);
-        card2 = findViewById(R.id.cardView2);
+        getSupportActionBar().hide(); // hide the title bar
 
-        card1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainHome.this,list_box.class));
-            }
-        });
+
+
+
+
 
     }
     public void OpenMenu(View view){
@@ -46,7 +39,7 @@ public class MainHome extends AppCompatActivity {
     }
 
     private static void openDrawer(DrawerLayout drawerLayout) {
-    drawerLayout.openDrawer(GravityCompat.START);
+        drawerLayout.openDrawer(GravityCompat.START);
     }
     public void ClickLogo(View view){
         closeDrawer(drawerLayout);
@@ -62,7 +55,7 @@ public class MainHome extends AppCompatActivity {
     }
 
     public void ClickHome(View view){
-recreate();
+        redirectActivity(this,MainHome.class);
     }
     public void ClickLogout(View view){
         redirectActivity(this,MainActivity.class);
@@ -70,9 +63,9 @@ recreate();
     }
 
     private static void closeDrawer(DrawerLayout drawerLayout) {
-    if(drawerLayout.isDrawerOpen(GravityCompat.START)){
-        drawerLayout.closeDrawer(GravityCompat.START);
-    }
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
     }
 
     @Override

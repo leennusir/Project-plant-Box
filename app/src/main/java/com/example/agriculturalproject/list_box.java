@@ -16,11 +16,9 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.agriculturalproject.Adapters.Adapter_Boxes;
 import com.example.agriculturalproject.GlobalClasses.Global;
@@ -38,7 +36,6 @@ import com.squareup.picasso.Picasso;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class list_box extends AppCompatActivity implements PaymentResultListener {
@@ -53,7 +50,7 @@ public class list_box extends AppCompatActivity implements PaymentResultListener
 
     EditText name;
     Spinner   plant_name;//select the plant
-    TextView x ;
+    TextView nav_email,nav_name ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,8 +63,11 @@ public class list_box extends AppCompatActivity implements PaymentResultListener
         recyclerBoxes.setLayoutManager(new GridLayoutManager(this , 2));//1 or any num card in the same line
         Box = FirebaseDatabase.getInstance().getReference("Boxes"); //Boxes table from firebase
         getBoxes(); //function(call)
-        x = findViewById(R.id.xxxxx);
-        x.setText(Global.currentUser.getEmail());
+        nav_email = findViewById(R.id.txt_view_email);
+        nav_email.setText(Global.currentUser.getEmail());
+
+        nav_name = findViewById(R.id.txt_view_name);
+        nav_name.setText(Global.currentUser.getFirstName() + " "+ Global.currentUser.getLastName() );
 
         BottomNavigationView btmNav = findViewById(R.id.bottom_nav_list_box);
         btmNav.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
@@ -167,7 +167,7 @@ public class list_box extends AppCompatActivity implements PaymentResultListener
                 adapter_boxes.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int pos, boolean isLongClick) {
-                        Toast.makeText(list_box.this, "Test", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(list_box.this , Monitor.class));
                     }
                 });
             }
