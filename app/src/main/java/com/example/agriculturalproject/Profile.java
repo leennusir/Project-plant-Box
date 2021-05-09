@@ -3,18 +3,24 @@ package com.example.agriculturalproject;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.agriculturalproject.GlobalClasses.Global;
@@ -43,6 +49,9 @@ public class Profile extends AppCompatActivity {
     Spinner Spinner ;
     Button update ,update_password;
     EditText new_password , old_password , confirm_password;
+    DrawerLayout drawerLayout ;
+    TextView x ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +64,10 @@ public class Profile extends AppCompatActivity {
 
         FirstName.setText(Global.currentUser.getFirstName());//PUT THE USER CLASS INFO. IN PROFILE PAGE
         LastName.setText(Global.currentUser.getLastName());
+        drawerLayout = findViewById(R.id.main_drawer_layout);
+        x = findViewById(R.id.xxxxx);
+        x.setText(Global.currentUser.getEmail());
+        getSupportActionBar().hide(); // hide the title bar
 
         //SELECT CITY BUTTON (CODE)
         Locale[] locales = Locale.getAvailableLocales();//eVERY AVALBEL LOCATION
@@ -122,6 +135,7 @@ public class Profile extends AppCompatActivity {
 
         });
 
+
     }
 
     private void change_password() {
@@ -180,6 +194,46 @@ public class Profile extends AppCompatActivity {
 
 
 
+    }
+
+    public void OpenMenu(View view){
+        openDrawer(drawerLayout);
+    }
+
+    private static void openDrawer(DrawerLayout drawerLayout) {
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+    public void ClickLogo(View view){
+        closeDrawer(drawerLayout);
+    }
+    public void ClickProfile(View view){
+        redirectActivity(this,Profile.class);
+    }
+
+    private void redirectActivity(Activity activity , Class aClass) {
+        Intent obj = new Intent(activity,aClass);
+        obj.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        activity.startActivity(obj);
+    }
+
+    public void ClickHome(View view){
+        redirectActivity(this,MainHome.class);
+    }
+    public void ClickLogout(View view){
+        redirectActivity(this,MainActivity.class);
+
+    }
+
+    private static void closeDrawer(DrawerLayout drawerLayout) {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        closeDrawer(drawerLayout);
     }
 
 }

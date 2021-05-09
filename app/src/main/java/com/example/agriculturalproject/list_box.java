@@ -19,9 +19,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.agriculturalproject.Adapters.Adapter_Boxes;
+import com.example.agriculturalproject.GlobalClasses.Global;
 import com.example.agriculturalproject.InterFace.ItemClickListener;
 import com.example.agriculturalproject.Models.Boxes;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -51,6 +53,7 @@ public class list_box extends AppCompatActivity implements PaymentResultListener
 
     EditText name;
     Spinner   plant_name;//select the plant
+    TextView x ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +66,8 @@ public class list_box extends AppCompatActivity implements PaymentResultListener
         recyclerBoxes.setLayoutManager(new GridLayoutManager(this , 2));//1 or any num card in the same line
         Box = FirebaseDatabase.getInstance().getReference("Boxes"); //Boxes table from firebase
         getBoxes(); //function(call)
+        x = findViewById(R.id.xxxxx);
+        x.setText(Global.currentUser.getEmail());
 
         BottomNavigationView btmNav = findViewById(R.id.bottom_nav_list_box);
         btmNav.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
@@ -212,6 +217,7 @@ public class list_box extends AppCompatActivity implements PaymentResultListener
         redirectActivity(this,MainHome.class);
     }
     public void ClickLogout(View view){
+        redirectActivity(this,MainActivity.class);
 
     }
 

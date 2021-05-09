@@ -13,15 +13,15 @@
     android:layout_height="wrap_content"
     android:onClick="OpenMenu"
     android:src="@drawable/ic_baseline_menu_24"/>
+
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Hi leen"
-        android:textSize="20sp"
-        android:textStyle="bold"
         android:textAlignment="center"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

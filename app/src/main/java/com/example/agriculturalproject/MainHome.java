@@ -63,6 +63,7 @@ public class MainHome extends AppCompatActivity {
 recreate();
     }
     public void ClickLogout(View view){
+        redirectActivity(this,MainActivity.class);
 
     }
 
