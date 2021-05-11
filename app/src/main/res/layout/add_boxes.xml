@@ -10,42 +10,75 @@
 
 
     <LinearLayout
-        android:layout_margin="20dp"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="327dp"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@color/green2"
+            android:paddingTop="5dp"
+            android:text="Enter Box Name"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:typeface="monospace"
+
+
+            />
 
         <EditText
             android:id="@+id/edt_name_box"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Enter Box Name"
+            android:layout_height="41dp"
+            android:background="@color/white"
+
+            android:fadeScrollbars="false"
+            android:hapticFeedbackEnabled="false"
+            android:hint="ex:box1"
+
             android:inputType="text"
+            android:scrollbarAlwaysDrawHorizontalTrack="true"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbarThumbHorizontal="@color/black"
             android:text=""
+            android:textAlignment="viewStart"
+            android:textColor="@color/green2"
+            android:textColorHint="@color/cardview_dark_background"
+            android:textSize="14sp" />
 
-            android:textColor="@color/colorPrimary"
-            android:textColorHint="@color/colorPrimary"
-            android:textSize="20sp"
-
-            />
-
-        <Spinner
-            android:id="@+id/edt_plant_name"
+        <TextView
+            android:id="@+id/textView3"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:backgroundTint="@color/white"
-            android:foregroundTint="@color/white"
-            android:scrollbarThumbHorizontal="@color/white"
-            android:scrollbarThumbVertical="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.585"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.671" />
+            android:layout_height="30dp"
+            android:background="@color/green2"
+            android:paddingTop="5dp"
+            android:text="Select The Plant"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:typeface="monospace" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="89dp"/>
+            android:layout_height="89dp">
+
+            <Spinner
+                android:id="@+id/edt_plant_name"
+                android:layout_width="match_parent"
+                android:layout_height="41dp"
+                android:backgroundTint="@color/green2"
+                android:foregroundTint="@color/white"
+                android:scrollbarThumbHorizontal="@color/white"
+                android:scrollbarThumbVertical="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                tools:layout_editor_absoluteX="0dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 

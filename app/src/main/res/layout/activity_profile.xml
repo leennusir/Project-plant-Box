@@ -33,6 +33,7 @@
             android:id="@+id/edt_profile_Lname"
             android:layout_width="264dp"
             android:layout_height="46dp"
+            android:backgroundTint="@color/green2"
             android:hint="Last Name"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -45,6 +46,7 @@
             android:id="@+id/edt_profile_Fname"
             android:layout_width="258dp"
             android:layout_height="47dp"
+            android:backgroundTint="@color/green2"
             android:hint="First Name"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -56,13 +58,22 @@
         <Spinner
             android:id="@+id/edt_spinner_profile"
             android:layout_width="268dp"
-            android:layout_height="38dp"
+            android:layout_height="42dp"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.51"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.339" />
+            app:layout_constraintVertical_bias="0.339"
+
+
+            android:backgroundTint="@color/green2"
+            android:foregroundTint="@color/white"
+            android:scrollbarThumbHorizontal="@color/white"
+            android:scrollbarThumbVertical="@color/white"
+
+            />
 
         <Button
             android:id="@+id/btn_profile_update"
@@ -80,24 +91,31 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.804"
             app:rippleColor="#FFFFFF" />
+
         <RelativeLayout
             android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/green2"
+            android:foregroundTint="@color/green2"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+
+            >
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/bottom_nav_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="0dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginTop="20dp"
+                android:paddingTop="0dp"
                 app:itemBackground="@color/green2"
                 app:itemIconTint="@color/bottom_text"
                 app:itemTextColor="@color/bottom_text"
