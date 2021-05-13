@@ -19,7 +19,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/green"
+        android:background="@color/green2"
+        android:backgroundTint="@color/green2"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="10dp">
@@ -29,7 +30,7 @@
             android:id="@+id/box_image"
             android:layout_width="98dp"
             android:layout_height="104dp"
-            android:backgroundTint="@color/forth"
+            android:background="@drawable/icons8_box_500"
             android:padding="0dp"
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toTopOf="@+id/box_name"
@@ -44,12 +45,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="5dp"
-            android:background="@color/forth"
+            android:layout_marginBottom="50dp"
+            android:background="@color/design_default_color_surface"
             android:gravity="center"
             android:padding="10dp"
             android:text="Name of Menu"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/green2"
+            android:textColorLink="@color/green2"
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/box_image"
@@ -64,16 +66,19 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="5dp"
-            android:background="@color/forth"
+            android:background="@color/design_default_color_surface"
             android:gravity="center"
             android:padding="10dp"
             android:text="Name of Menu"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/green2"
+            android:textColorLink="@color/green2"
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/box_name"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/box_name"
-            app:layout_constraintTop_toBottomOf="@+id/box_name">
+            app:layout_constraintTop_toBottomOf="@+id/box_name"
+            app:layout_constraintVertical_bias="1.0">
 
         </TextView>
 
