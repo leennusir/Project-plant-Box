@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.agriculturalproject.GlobalClasses.Global;
+import com.example.agriculturalproject.Models.Plants;
 
 public class MainHome extends AppCompatActivity {
     DrawerLayout drawerLayout ;
@@ -37,6 +38,12 @@ public class MainHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainHome.this,list_box.class));
+            }
+        });
+        card2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainHome.this, PlantsList.class));
             }
         });
 
