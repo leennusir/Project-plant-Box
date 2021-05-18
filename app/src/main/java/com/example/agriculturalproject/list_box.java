@@ -57,7 +57,7 @@ public class list_box extends AppCompatActivity implements PaymentResultListener
 
         recyclerBoxes = findViewById(R.id.recycle_box);//recycle_box==هو اللي بنعرض جواته البوكسات
         recyclerBoxes.setHasFixedSize(true);//to make recyclerview Fixed
-        recyclerBoxes.setLayoutManager(new GridLayoutManager(this , 2));//1 or any num card in the same line(ع السطر الواحد كم بوكس)
+        recyclerBoxes.setLayoutManager(new GridLayoutManager(this , 1));//1 or any num card in the same line(ع السطر الواحد كم بوكس)
         Box = FirebaseDatabase.getInstance().getReference("Boxes"); //Boxes table from firebase
         getBoxes(); //function(call)
         nav_email = findViewById(R.id.txt_view_email);
