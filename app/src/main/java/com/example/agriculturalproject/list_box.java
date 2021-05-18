@@ -38,29 +38,26 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class list_box extends AppCompatActivity implements PaymentResultListener {
+public class list_box extends AppCompatActivity implements PaymentResultListener {//payment system (عملية الدفع)
     RecyclerView recyclerBoxes;
-    DatabaseReference Box;//to get boxes from firebase
+    DatabaseReference Box;//to get boxes from firebase()
     FirebaseRecyclerAdapter<Boxes, Adapter_Boxes> related_Boxes ; //Boxes = class
-    //Adapter_Boxes = class
-    // connect between Boxes and adapter
-
 
     DrawerLayout drawerLayout ;
 
     EditText name;
     Spinner   plant_name;//select the plant
-    TextView nav_email,nav_name ;
+    TextView nav_email,nav_name ;//for main_nav_drawar
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_box);
         drawerLayout = findViewById(R.id.main_drawer_layout);
-        getSupportActionBar().hide();
+        getSupportActionBar().hide();//hide tool bar
 
-        recyclerBoxes = findViewById(R.id.recycle_box);
+        recyclerBoxes = findViewById(R.id.recycle_box);//recycle_box==هو اللي بنعرض جواته البوكسات
         recyclerBoxes.setHasFixedSize(true);//to make recyclerview Fixed
-        recyclerBoxes.setLayoutManager(new GridLayoutManager(this , 2));//1 or any num card in the same line
+        recyclerBoxes.setLayoutManager(new GridLayoutManager(this , 1));//1 or any num card in the same line(ع السطر الواحد كم بوكس)
         Box = FirebaseDatabase.getInstance().getReference("Boxes"); //Boxes table from firebase
         getBoxes(); //function(call)
         nav_email = findViewById(R.id.txt_view_email);
