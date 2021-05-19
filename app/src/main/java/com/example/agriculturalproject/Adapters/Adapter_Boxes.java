@@ -1,10 +1,13 @@
 package com.example.agriculturalproject.Adapters;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.agriculturalproject.InterFace.ItemClickListener;

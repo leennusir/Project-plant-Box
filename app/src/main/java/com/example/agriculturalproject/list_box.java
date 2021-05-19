@@ -16,9 +16,11 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.agriculturalproject.Adapters.Adapter_Boxes;
 import com.example.agriculturalproject.GlobalClasses.Global;
@@ -27,6 +29,7 @@ import com.example.agriculturalproject.Models.Boxes;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.razorpay.Checkout;
@@ -37,6 +40,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class list_box extends AppCompatActivity implements PaymentResultListener {//payment system (عملية الدفع)
     RecyclerView recyclerBoxes;
@@ -161,10 +165,13 @@ public class list_box extends AppCompatActivity implements PaymentResultListener
                 Picasso.get().load(boxes.getImg()).into(adapter_boxes.img_box);//to put defualt image
                 adapter_boxes.name_box.setText(boxes.getName());
                 adapter_boxes.nameplant.setText(boxes.getPlant());
+
                 adapter_boxes.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int pos, boolean isLongClick) {
-                            startActivity(new Intent(list_box.this , Monitor.class));
+                        Global.currentBoxes = boxes;
+
+                        startActivity(new Intent(list_box.this , Monitor.class));
                     }
                 });
             }
@@ -180,7 +187,9 @@ public class list_box extends AppCompatActivity implements PaymentResultListener
         Boxes boxes = new Boxes("https://i.imgur.com/8K3n51X.jpg",
                 name.getText().toString(),
                 plant_name.getSelectedItem().toString(),
-                FirebaseAuth.getInstance().getCurrentUser().getUid());
+                FirebaseAuth.getInstance().getCurrentUser().getUid(),"OFF",
+                "nan" ,"nan"
+        );
         Box.push().setValue(boxes);
         builder.show();
     }
