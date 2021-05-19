@@ -18,7 +18,6 @@
         <activity android:name=".MainHome" />
         <activity android:name=".Profile" />
         <activity android:name=".list_box" />
-        <activity android:name=".MainActivity2" />
         <activity android:name=".RegisterUser" />
         <activity android:name=".MainActivity">
             <intent-filter>
