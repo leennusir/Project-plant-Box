@@ -1,13 +1,13 @@
 package com.example.agriculturalproject.Models;
 
 public class Boxes {
-    String img, name, plant, userId, Led ,Temperature ,Humidity; // String name from FB (حرفيا)
-
+    String img, name, plant, userId, Led, Temperature, Humidity, Soil_Moisture, Water_Level, pump; // String name from FB (حرفيا)
 
     public Boxes() {
     }
 
-    public Boxes(String img, String name, String plant, String userId, String led, String temperature, String humidity) {
+    public Boxes(String img, String name, String plant, String userId, String led, String temperature,
+                 String humidity, String soil_Moisture, String water_Level, String pump) {
         this.img = img;
         this.name = name;
         this.plant = plant;
@@ -15,6 +15,9 @@ public class Boxes {
         Led = led;
         Temperature = temperature;
         Humidity = humidity;
+        Soil_Moisture = soil_Moisture;
+        Water_Level = water_Level;
+        this.pump = pump;
     }
 
     public String getImg() {
@@ -72,6 +75,28 @@ public class Boxes {
     public void setHumidity(String humidity) {
         Humidity = humidity;
     }
+
+    public String getSoil_Moisture() {
+        return Soil_Moisture;
+    }
+
+    public void setSoil_Moisture(String soil_Moisture) {
+        Soil_Moisture = soil_Moisture;
+    }
+
+    public String getWater_Level() {
+        return Water_Level;
+    }
+
+    public void setWater_Level(String water_Level) {
+        Water_Level = water_Level;
+    }
+
+    public String getPump() {
+        return pump;
+    }
+
+    public void setPump(String pump) {
+        this.pump = pump;
+    }
 }
-
-

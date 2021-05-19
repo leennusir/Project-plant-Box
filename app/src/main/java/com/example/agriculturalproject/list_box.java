@@ -188,7 +188,7 @@ public class list_box extends AppCompatActivity implements PaymentResultListener
                 name.getText().toString(),
                 plant_name.getSelectedItem().toString(),
                 FirebaseAuth.getInstance().getCurrentUser().getUid(),"OFF",
-                "nan" ,"nan"
+                "nan" ,"nan" , "0.00","360","No"
         );
         Box.push().setValue(boxes);
         builder.show();

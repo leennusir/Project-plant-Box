@@ -21,7 +21,7 @@ import java.util.HashMap;
 
 public class Monitor extends AppCompatActivity {
     DrawerLayout drawerLayout ;
-    TextView nav_email ,nav_name , plant_temp ,plant_Humidity;
+    TextView nav_email ,nav_name , plant_temp ,plant_Humidity , plant_Soil_Moisture , plant_Water_Level , plant_pump;
     Switch led;
     DatabaseReference Box;
     @Override
@@ -32,14 +32,24 @@ public class Monitor extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.main_drawer_layout);
         nav_email = findViewById(R.id.txt_view_email);
-        nav_email.setText(Global.currentUser.getEmail());
         nav_name = findViewById(R.id.txt_view_name);
         led = findViewById(R.id.switch_led);
-
         plant_temp = findViewById(R.id.plant_temp);
         plant_Humidity = findViewById(R.id.plant_humidity);
+        plant_Soil_Moisture = findViewById(R.id.plant_Soil_Moisture);
+        plant_Water_Level =  findViewById(R.id.plant_Water_Level);
+        plant_pump = findViewById(R.id.plant_pump);
+
+        nav_email.setText(Global.currentUser.getEmail());
+        nav_name.setText(Global.currentUser.getFirstName() + " "+ Global.currentUser.getLastName() );
+        getSupportActionBar().hide(); // hide the title bar
+        Toast.makeText(this, Global.currentBoxes.getName(), Toast.LENGTH_SHORT).show();
+
         plant_temp.setText(Global.currentBoxes.getTemperature() );
         plant_Humidity.setText(Global.currentBoxes.getHumidity()  );
+        plant_Soil_Moisture.setText(Global.currentBoxes.getSoil_Moisture());
+        plant_Water_Level.setText(Global.currentBoxes.getWater_Level());
+        plant_pump.setText(Global.currentBoxes.getPump());
 
         led.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -51,9 +61,7 @@ public class Monitor extends AppCompatActivity {
                         Box.child("-MZT-_W4Ib79xESLf_D4").updateChildren(update_values);
             }
         });
-        nav_name.setText(Global.currentUser.getFirstName() + " "+ Global.currentUser.getLastName() );
-        getSupportActionBar().hide(); // hide the title bar
-        Toast.makeText(this, Global.currentBoxes.getName(), Toast.LENGTH_SHORT).show();
+
 
 
 
