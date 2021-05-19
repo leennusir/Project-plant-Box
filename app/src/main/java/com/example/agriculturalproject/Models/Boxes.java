@@ -1,7 +1,7 @@
 package com.example.agriculturalproject.Models;
 
 public class Boxes {
-    String img, name, plant, userId, Led, Temperature, Humidity, Soil_Moisture, Water_Level, pump, AC,Fan ,Led_auto; // String name from FB (حرفيا)
+    String img, name, plant, userId, Led, Temperature, Humidity, Soil_Moisture, Water_Level, pump, AC,Fan ,Led_auto,id_box; // String name from FB (حرفيا)
 
     public Boxes() {
     }
@@ -125,5 +125,13 @@ public class Boxes {
 
     public void setLed_auto(String led_auto) {
         Led_auto = led_auto;
+    }
+
+    public String getId_box() {
+        return id_box;
+    }
+
+    public void setId_box(String id_box) {
+        this.id_box = id_box;
     }
 }

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".TemperatureSystem">
 
-    <Switch
+    <TextView
         android:id="@+id/plant_temp_fan"
         android:layout_width="237dp"
         android:layout_height="43dp"
@@ -28,7 +28,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.231" />
 
-    <Switch
+    <TextView
         android:id="@+id/plant_temp_AC"
         android:layout_width="237dp"
         android:layout_height="43dp"

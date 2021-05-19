@@ -169,6 +169,7 @@ public class list_box extends AppCompatActivity implements PaymentResultListener
                 adapter_boxes.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int pos, boolean isLongClick) {
+                        boxes.setId_box(related_Boxes.getRef(pos).getKey());
                         Global.currentBoxes = boxes;
 
                         startActivity(new Intent(list_box.this , Monitor.class));
