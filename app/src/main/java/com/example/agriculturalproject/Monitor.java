@@ -1,6 +1,7 @@
 package com.example.agriculturalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -8,57 +9,57 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.CompoundButton;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.agriculturalproject.GlobalClasses.Global;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.HashMap;
 
 public class Monitor extends AppCompatActivity {
     DrawerLayout drawerLayout ;
-    TextView nav_email ,nav_name , plant_temp ,plant_Humidity , plant_Soil_Moisture , plant_Water_Level , plant_pump;
-    Switch led;
-    DatabaseReference Box;
+    TextView nav_email ,nav_name ;
+
+    CardView card3 , card4 ,card5 , card6 ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_monitor);
-        Box = FirebaseDatabase.getInstance().getReference("Boxes"); //Boxes table from firebase
 
         drawerLayout = findViewById(R.id.main_drawer_layout);
         nav_email = findViewById(R.id.txt_view_email);
         nav_name = findViewById(R.id.txt_view_name);
-        led = findViewById(R.id.switch_led);
-        plant_temp = findViewById(R.id.plant_temp);
-        plant_Humidity = findViewById(R.id.plant_humidity);
-        plant_Soil_Moisture = findViewById(R.id.plant_Soil_Moisture);
-        plant_Water_Level =  findViewById(R.id.plant_Water_Level);
-        plant_pump = findViewById(R.id.plant_pump);
+        card3 = findViewById(R.id.cardViewWater);
+        card4 = findViewById(R.id.cardViewHumidity);
+        card5 = findViewById(R.id.cardViewTemperature);
+        card6 = findViewById(R.id.cardViewLight);
+
 
         nav_email.setText(Global.currentUser.getEmail());
         nav_name.setText(Global.currentUser.getFirstName() + " "+ Global.currentUser.getLastName() );
         getSupportActionBar().hide(); // hide the title bar
         Toast.makeText(this, Global.currentBoxes.getName(), Toast.LENGTH_SHORT).show();
 
-        plant_temp.setText(Global.currentBoxes.getTemperature() );
-        plant_Humidity.setText(Global.currentBoxes.getHumidity()  );
-        plant_Soil_Moisture.setText(Global.currentBoxes.getSoil_Moisture());
-        plant_Water_Level.setText(Global.currentBoxes.getWater_Level());
-        plant_pump.setText(Global.currentBoxes.getPump());
-
-        led.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        card3.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                HashMap<String , Object> update_values = new HashMap<String, Object>();
-                        update_values.put("Led",String.valueOf(isChecked));
-
-
-                        Box.child("-MZT-_W4Ib79xESLf_D4").updateChildren(update_values);
+            public void onClick(View v) {
+                startActivity(new Intent(Monitor.this,WaterSystem.class));
+            }
+        });
+        card4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Monitor.this, HumiditySystem.class));
+            }
+        });
+        card5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Monitor.this, TemperatureSystem.class));
+            }
+        });
+        card6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Monitor.this, LightSystem.class));
             }
         });
 

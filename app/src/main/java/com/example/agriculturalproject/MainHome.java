@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.agriculturalproject.GlobalClasses.Global;
-import com.example.agriculturalproject.Models.Plants;
 
 public class MainHome extends AppCompatActivity {
     DrawerLayout drawerLayout ;
@@ -31,8 +30,8 @@ public class MainHome extends AppCompatActivity {
         nav_email.setText(Global.currentUser.getEmail());
         nav_name = findViewById(R.id.txt_view_name);
         nav_name.setText(Global.currentUser.getFirstName() + " "+ Global.currentUser.getLastName() );
-        card1 = findViewById(R.id.cardView1);
-        card2 = findViewById(R.id.cardView2);
+        card1 = findViewById(R.id.cardViewWater);
+        card2 = findViewById(R.id.cardViewHumidity);
 
         card1.setOnClickListener(new View.OnClickListener() {
             @Override

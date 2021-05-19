@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.agriculturalproject.InterFace.ItemClickListener;
 import com.example.agriculturalproject.R;
-
+//for show guide
 public class Adapter_Plants extends RecyclerView.ViewHolder implements View.OnClickListener {
     public ImageView plant_card_image ;
     public TextView plant_card_name ;

@@ -38,7 +38,7 @@
         tools:layout_editor_absoluteX="-32dp">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView1"
+            android:id="@+id/cardViewWater"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
@@ -51,7 +51,7 @@
             app:cardElevation="6dp" />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView2"
+            android:id="@+id/cardViewHumidity"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
