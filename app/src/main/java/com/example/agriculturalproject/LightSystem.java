@@ -2,8 +2,15 @@ package com.example.agriculturalproject;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -25,6 +32,8 @@ public class LightSystem extends AppCompatActivity {
     Switch led ;
     TextView led_auto ;
     DatabaseReference Box;
+    public static final String NOTIFICATION_CHANNEL_ID = "10001" ;
+    private final static String default_notification_channel_id = "default" ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +50,21 @@ public class LightSystem extends AppCompatActivity {
                 HashMap<String , Object> update_values = new HashMap<String, Object>();
                 update_values.put("Led",String.valueOf(isChecked));
 
+                if(isChecked){
+                    addNotification("The light is on!");
+                }
 
                 Box.child(Global.currentBoxes.getId_box()).updateChildren(update_values);
+                final Handler handler = new Handler(Looper.getMainLooper());//timer
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (!isChecked){
+                            addNotification("The light is still going too far");
+
+                        }
+                    }
+                }, 30000);
             }
         });
         Box.addValueEventListener(new ValueEventListener() {
@@ -58,5 +80,27 @@ public class LightSystem extends AppCompatActivity {
             }
         });
 
+    }
+    private void addNotification(String msg) {
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(LightSystem.this,
+                default_notification_channel_id )
+                .setSmallIcon(R.drawable.ic_launcher_foreground )//ic_launcher_foreground== pic on notification
+                .setContentTitle( "Smart Box" )
+                .setContentText( msg );
+        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context. NOTIFICATION_SERVICE ) ;//class NotificationManager  get NotificationService
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O ) {//android version must be more or equal VERSION_CODES(my app)
+            int importance = NotificationManager.IMPORTANCE_HIGH ;//
+            NotificationChannel notificationChannel = new
+                    NotificationChannel( NOTIFICATION_CHANNEL_ID , "NOTIFICATION_CHANNEL_NAME" , importance) ;//create a object from channel
+            notificationChannel.enableLights( true ) ;
+            notificationChannel.setLightColor(Color. RED ) ;
+            notificationChannel.enableVibration( true ) ;
+            notificationChannel.setVibrationPattern( new long []{ 100 , 200 , 300 , 400 , 500 , 400 , 300 , 200 , 400 }) ;
+            mBuilder.setChannelId( NOTIFICATION_CHANNEL_ID ) ;
+            assert mNotificationManager != null;
+            mNotificationManager.createNotificationChannel(notificationChannel) ; //create channel
+        }
+        assert mNotificationManager != null;
+        mNotificationManager.notify(( int ) System. currentTimeMillis (), mBuilder.build()) ; //run notification
     }
 }
