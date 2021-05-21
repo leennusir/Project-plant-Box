@@ -2,14 +2,22 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.agriculturalproject">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AgriculturalProject">
-        <activity android:name=".LightSystem"></activity>
+        <activity android:name=".ResultActivity"></activity>
+        <activity android:name=".ImageProcess" />
+        <activity android:name=".ChooseImagePhoto" />
+        <activity android:name=".LightSystem" />
         <activity android:name=".TemperatureSystem" />
         <activity android:name=".HumiditySystem" />
         <activity android:name=".WaterSystem" />

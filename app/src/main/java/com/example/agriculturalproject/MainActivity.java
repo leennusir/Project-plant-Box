@@ -30,7 +30,7 @@ import com.google.firebase.database.ValueEventListener;
 public class MainActivity extends AppCompatActivity {
     EditText email_phone , password ;
     TextView forget ,crate;
-    Button login;
+    Button login , api_python;
     FirebaseAuth fAuth;
     DatabaseReference databaseReference;
 
@@ -49,7 +49,14 @@ public class MainActivity extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");//access to all data about this user
 
+        api_python = findViewById(R.id.btn_log2);
+        api_python.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ChooseImagePhoto.class));
 
+            }
+        });
         crate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
