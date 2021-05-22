@@ -19,6 +19,8 @@
         <activity android:name=".Profile" />
         <activity android:name=".list_box" />
         <activity android:name=".RegisterUser" />
+        <activity android:name=".contactus" />
+        <activity android:name=".privacypolicy" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
