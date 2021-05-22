@@ -92,7 +92,7 @@ public class ImageProcess extends AppCompatActivity {
     }
     private void connectServer(View v) {
 
-        String postUrl= "http://192.168.1.19:8001/";
+        String postUrl= "http://172.16.100.15:80/";
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inPreferredConfig = Bitmap.Config.RGB_565;
