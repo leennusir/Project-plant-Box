@@ -1,106 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/main_drawer_layout"
     tools:context=".HumiditySystem">
 
-    <TextView
-        android:id="@+id/plant_humidity"
-        android:layout_width="137dp"
-        android:text="'111"
-        android:layout_height="38dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.361"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.141" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <include layout="@layout/main_toolbar"/>
+        <TextView
+            android:id="@+id/plant_humidity"
+            android:layout_width="137dp"
+            android:text="'111"
+            android:layout_height="38dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.361"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.141" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName7"
-        android:layout_width="173dp"
-        android:layout_height="64dp"
-        android:layout_marginEnd="136dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="AC"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8" />
+        <EditText
+            android:id="@+id/editTextTextPersonName7"
+            android:layout_width="173dp"
+            android:layout_height="64dp"
+            android:layout_marginEnd="136dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="AC"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.8" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName6"
-        android:layout_width="173dp"
-        android:layout_height="64dp"
-        android:layout_marginEnd="136dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Fan"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.529" />
+        <EditText
+            android:id="@+id/editTextTextPersonName6"
+            android:layout_width="173dp"
+            android:layout_height="64dp"
+            android:layout_marginEnd="136dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Fan"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.529" />
 
-    <TextView
-        android:id="@+id/plant_Soil_Moisture"
-        android:layout_width="202dp"
-        android:layout_height="63dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.389" />
+        <TextView
+            android:id="@+id/plant_Soil_Moisture"
+            android:layout_width="202dp"
+            android:layout_height="63dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.526"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.389" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName5"
-        android:layout_width="153dp"
-        android:layout_height="45dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Soil_Moisture"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.383"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.293" />
+        <EditText
+            android:id="@+id/editTextTextPersonName5"
+            android:layout_width="153dp"
+            android:layout_height="45dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Soil_Moisture"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.383"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.293" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName3"
-        android:layout_width="173dp"
-        android:layout_height="64dp"
-        android:layout_marginEnd="128dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Humidity System"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.038" />
+        <EditText
+            android:id="@+id/editTextTextPersonName3"
+            android:layout_width="173dp"
+            android:layout_height="64dp"
+            android:layout_marginEnd="128dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Humidity System"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.038" />
 
-    <TextView
-        android:id="@+id/plant_humidity_fan"
-        android:layout_width="137dp"
-        android:layout_height="38dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.372"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.653" />
+        <TextView
+            android:id="@+id/plant_humidity_fan"
+            android:layout_width="137dp"
+            android:layout_height="38dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.372"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.653" />
 
-    <TextView
-        android:id="@+id/plant_humidity_AC"
-        android:layout_width="137dp"
-        android:layout_height="38dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.445"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.901" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/plant_humidity_AC"
+            android:layout_width="137dp"
+            android:layout_height="38dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.445"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.901" />
+
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottom_nav_humidity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="20dp"
+                android:paddingTop="0dp"
+                app:itemBackground="@color/green2"
+                app:itemIconTint="@color/bottom_text"
+                app:itemTextColor="@color/bottom_text"
+                app:menu="@menu/bar_humidity"
+                tools:ignore="NotSibling">
+
+
+            </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+
+        android:background="@color/white">
+
+        <include layout="@layout/main_nav_drawer"/>
+    </RelativeLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

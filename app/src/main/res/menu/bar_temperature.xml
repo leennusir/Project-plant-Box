@@ -4,15 +4,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/back_profile"
+        android:id="@+id/back_temperature"
         android:enabled="true"
         android:icon="@drawable/back_icon"
-        android:title="Back "
+        android:title="Back"
         app:showAsAction="ifRoom"
         />
 
+
     <item
         android:enabled="true"
+
         android:title=""
         app:showAsAction="ifRoom"
         />

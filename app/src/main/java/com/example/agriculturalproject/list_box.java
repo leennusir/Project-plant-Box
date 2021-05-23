@@ -48,10 +48,10 @@ public class  list_box extends AppCompatActivity implements PaymentResultListene
     FirebaseRecyclerAdapter<Boxes, Adapter_Boxes> related_Boxes ; //Boxes = class
 
     DrawerLayout drawerLayout ;
-
+    TextView nav_email,nav_name ;//for main_nav_drawar
     EditText name;
     Spinner   plant_name;//select the plant
-    TextView nav_email,nav_name ;//for main_nav_drawar
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
