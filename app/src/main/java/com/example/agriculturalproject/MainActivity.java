@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 String password_str = password.getText().toString().trim() ;
 
                 if (email_phone_str.isEmpty()){
-                    Toast.makeText(MainActivity.this, "The Email or Phone is empty", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "The Email  is empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(password_str.isEmpty())
