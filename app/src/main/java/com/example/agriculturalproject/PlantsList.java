@@ -22,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
-
+//for guide page
 public class PlantsList extends AppCompatActivity {
     RecyclerView recyclerPlants;
     DatabaseReference Plant;//to get boxes from firebase()

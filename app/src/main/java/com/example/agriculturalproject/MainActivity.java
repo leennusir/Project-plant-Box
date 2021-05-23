@@ -31,10 +31,10 @@ public class MainActivity extends AppCompatActivity {
     EditText email_phone , password ;
     TextView forget ,crate;
     Button login;
-    FirebaseAuth fAuth;
-    DatabaseReference databaseReference;
+    FirebaseAuth fAuth;//forget password
+    DatabaseReference databaseReference;//get anything i want from fb
 
-    private FirebaseAuth mAuth;
+    private FirebaseAuth mAuth;//authentication(email,password)(to check the email and password correct from fb)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,9 +48,10 @@ public class MainActivity extends AppCompatActivity {
         login = findViewById(R.id.btn_log);
         fAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");//access to all data about this user
+                                                                                        // Users==table
 
 
-        crate.setOnClickListener(new View.OnClickListener() {
+        crate.setOnClickListener(new View.OnClickListener() {//crate  new account
             @Override
             public void onClick(View v) {
 
@@ -60,11 +61,13 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email_phone_str = email_phone.getText().toString().trim() ;
+                String email_phone_str = email_phone.getText().toString().trim() ;//trim== remove whitespace
                 String password_str = password.getText().toString().trim() ;
 
                 if (email_phone_str.isEmpty()){
-                    Toast.makeText(MainActivity.this, "The Email  is empty", Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(MainActivity.this, "The Email is empty", Toast.LENGTH_SHORT).show();
+
                     return;
                 }
                 if(password_str.isEmpty())
@@ -81,25 +84,26 @@ public class MainActivity extends AppCompatActivity {
                 mAuth.signInWithEmailAndPassword(email_phone_str , password_str).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
+                        if(task.isSuccessful()){//task== sign operation
                             databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                    Users user = snapshot.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).getValue(Users.class);//control in data(update,delete,insert )
-                                    Global.currentUser = user;
-                                    startActivity(new Intent(MainActivity.this , MainHome.class));//access to home page(drawable)
+                                    Users user = snapshot.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).getValue(Users.class);//snapshot==control in data(update,delete,insert ,getValue)
+                                    Global.currentUser = user;//user static var. to make stable in all sys.(account)
+                                                              //
+                                    startActivity(new Intent(MainActivity.this , MainHome.class));//go to home page
 
                                 }
 
                                 @Override
-                                public void onCancelled(@NonNull DatabaseError error) {
-
+                                public void onCancelled(@NonNull DatabaseError error) {//
+                                    Toast.makeText(MainActivity.this, "Dis connect on firebase", Toast.LENGTH_SHORT).show();
                                 }
                             });
 
                         }
                         else
-                            Toast.makeText(MainActivity.this, "The password or email is error", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "The password or email is wrong", Toast.LENGTH_SHORT).show();//if i enter wrong email and password
 
                     }
                 });
@@ -108,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
         forget.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText resetMail = new EditText(v.getContext());
+                EditText resetMail = new EditText(v.getContext());//getContext==access to make edit text
                 AlertDialog.Builder PasswordRestDialog = new AlertDialog.Builder(v.getContext());
                 PasswordRestDialog.setTitle("Reset Password ?");
                 PasswordRestDialog.setMessage("Enter Your Email To Received Reset Link");

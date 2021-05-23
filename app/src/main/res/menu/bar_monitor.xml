@@ -2,16 +2,19 @@
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
-        android:id="@+id/back_profile"
+        android:id="@+id/back_monitor"
         android:enabled="true"
         android:icon="@drawable/back_icon"
-        android:title="Back "
+        android:title="Back"
         app:showAsAction="ifRoom"
         />
 
+
     <item
         android:enabled="true"
+
         android:title=""
         app:showAsAction="ifRoom"
         />

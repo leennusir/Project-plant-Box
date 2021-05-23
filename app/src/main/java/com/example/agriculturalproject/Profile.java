@@ -92,6 +92,7 @@ public class Profile extends AppCompatActivity {
                 update_values.put("firstName",FirstName.getText().toString());
                                   //firstName(from FB) == key
                                   //FirstName.getText() == Value (from edit text)
+                                 //like fb
                 update_values.put("lastName",LastName.getText().toString());
                 update_values.put("select",Spinner.getSelectedItem().toString());
 
@@ -138,7 +139,7 @@ public class Profile extends AppCompatActivity {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(Profile.this);
         alertDialog.setTitle("Change Password");
         alertDialog.setMessage("Please fill full information");
-        LayoutInflater inflater = this.getLayoutInflater();
+        LayoutInflater inflater = this.getLayoutInflater();//to show under
         View add_box_layout = inflater.inflate(R.layout.change_password,null);
         old_password = add_box_layout.findViewById(R.id.edt_pass_old);
         new_password = add_box_layout.findViewById(R.id.edt_pass_new);
@@ -155,7 +156,7 @@ public class Profile extends AppCompatActivity {
                     Toasty.error(Profile.this, "password does not match", Toast.LENGTH_SHORT, true).show();
                     return;
                 }else {
-                    AuthCredential credential = EmailAuthProvider.getCredential(Global.currentUser.getEmail(),old_password.getText().toString());
+                    AuthCredential credential = EmailAuthProvider.getCredential(Global.currentUser.getEmail(),old_password.getText().toString());//talk old pass and email
                     user.reauthenticate(credential)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
@@ -168,7 +169,7 @@ public class Profile extends AppCompatActivity {
                                                     Toasty.success(Profile.this, "Success!", Toast.LENGTH_SHORT, true).show();
 
                                                 } else {
-                                                    Toasty.error(Profile.this, "Not!", Toast.LENGTH_SHORT, true).show();
+                                                    Toasty.error(Profile.this, "Not!", Toast.LENGTH_SHORT, true).show();//error on update operation
 
                                                 }
                                             }
