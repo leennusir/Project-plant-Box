@@ -28,13 +28,13 @@ public class privacypolicy extends AppCompatActivity {
         nav_email.setText(Global.currentUser.getEmail());
         nav_name = findViewById(R.id.txt_view_name);
         nav_name.setText(Global.currentUser.getFirstName() + " "+ Global.currentUser.getLastName() );
-        BottomNavigationView btmNav = findViewById(R.id.bottom_nav_profile);//take FROM layout(activity profile.xml)
+        BottomNavigationView btmNav = findViewById(R.id.bottom_nav_privacypolicy);//take FROM layout(activity profile.xml)
         btmNav.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
             @Override
             public void onNavigationItemReselected(@NonNull MenuItem item) {
                 switch (item.getItemId())
                 {
-                    case R.id.back_profile://back to last page
+                    case R.id.back_privacypolicy://back to last page
                         //take from menu(bar_profile.xml)
                         finish();
 

@@ -100,7 +100,7 @@
             >
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottom_nav_profile"
+                android:id="@+id/bottom_nav_privacypolicy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -109,7 +109,7 @@
                 app:itemBackground="@color/green2"
                 app:itemIconTint="@color/bottom_text"
                 app:itemTextColor="@color/bottom_text"
-                app:menu="@menu/bar_profile"
+                app:menu="@menu/bar_privacypolicy"
                 tools:ignore="NotSibling">
 
             </com.google.android.material.bottomnavigation.BottomNavigationView>

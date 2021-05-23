@@ -33,13 +33,13 @@ public class contactus extends AppCompatActivity {
         nav_email.setText(Global.currentUser.getEmail());
         nav_name = findViewById(R.id.txt_view_name);
         nav_name.setText(Global.currentUser.getFirstName() + " "+ Global.currentUser.getLastName() );
-        BottomNavigationView btmNav = findViewById(R.id.bottom_nav_profile);//take FROM layout(activity profile.xml)
+        BottomNavigationView btmNav = findViewById(R.id.bottom_nav_contactus);//take FROM layout(activity profile.xml)
         btmNav.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
             @Override
             public void onNavigationItemReselected(@NonNull MenuItem item) {
                 switch (item.getItemId())
                 {
-                    case R.id.back_profile://back to last page
+                    case R.id.back_contactus://back to last page
                         //take from menu(bar_profile.xml)
                         finish();
 
@@ -85,14 +85,7 @@ public class contactus extends AppCompatActivity {
                     your_message.requestFocus();
                     return;
                 }
-                Intent sendEmail = new Intent(android.content.Intent.ACTION_SEND);//ACTION_SEND == gmail and drive
-                /* Fill it with Data */
-                sendEmail.setType("plain/text");
-                sendEmail.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"dr.m.karthiik@gmail.com"});//fixed
-                sendEmail.putExtra(android.content.Intent.EXTRA_SUBJECT, subject);
-                sendEmail.putExtra(android.content.Intent.EXTRA_TEXT, "name:" + name + '\n' + "Email ID:" + email + '\n' + "Message:" + '\n' + message);
-                /* Send it off to the Activity-Chooser */
-                startActivity(Intent.createChooser(sendEmail, "Send mail..."));
+
             }
         });
 
@@ -152,7 +145,7 @@ public class contactus extends AppCompatActivity {
     }
     // validating email id
     private boolean isValidEmail(String email) {
-        String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+        String EMAIL_PATTERN = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         Pattern pattern = Pattern.compile(EMAIL_PATTERN);
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
