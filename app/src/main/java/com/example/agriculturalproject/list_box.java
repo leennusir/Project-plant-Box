@@ -42,7 +42,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class list_box extends AppCompatActivity implements PaymentResultListener {//payment system (عملية الدفع)
+public class  list_box extends AppCompatActivity implements PaymentResultListener {//payment system (عملية الدفع)
     RecyclerView recyclerBoxes;
     DatabaseReference Box;//to get boxes from firebase()
     FirebaseRecyclerAdapter<Boxes, Adapter_Boxes> related_Boxes ; //Boxes = class
@@ -109,7 +109,7 @@ public class list_box extends AppCompatActivity implements PaymentResultListener
         plants.add("Watermelon");
         plants.add("Cherries");
         ArrayAdapter<String> plantAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, plants);
+                android.R.layout.simple_spinner_item, plants);// concatenation between plants name and my special spinner
         plantAdapter.setDropDownViewResource(R.layout.spinner_layout);
         plant_name.setAdapter(plantAdapter);
 //
@@ -120,9 +120,9 @@ public class list_box extends AppCompatActivity implements PaymentResultListener
             public void onClick(DialogInterface dialog, int which) {
                 // payment library
                 Checkout checkout = new Checkout();// checkout class
-                checkout.setKeyID("rzp_test_C2EodRkMQfOxSf");//from website
-//                checkout.setImage(R.id.rzp_innerbox);
-                JSONObject object = new JSONObject();
+                checkout.setKeyID("rzp_test_C2EodRkMQfOxSf");//id from website(api key)
+
+                JSONObject object = new JSONObject();// like map
                 String Samount = "50";
                 int a = Math.round(Float.parseFloat(Samount)*50);
                 try {
@@ -141,12 +141,6 @@ public class list_box extends AppCompatActivity implements PaymentResultListener
                     //SHOW ERROR
                     e.printStackTrace();
                 }
-//                if(name.getText().toString().isEmpty()){
-//                    return;
-//                }
-//                if(plant_name.getText().toString().isEmpty()){
-//                    return;
-//                }
 
             }
         });

@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.example.agriculturalproject.GlobalClasses.Global;
 
 public class MainHome extends AppCompatActivity {
-    DrawerLayout drawerLayout ;
+    DrawerLayout drawerLayout ; // for navigation
     TextView nav_email,nav_name;
 
     CardView card1 , card2  ;
@@ -23,11 +23,12 @@ public class MainHome extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_home);
-        getSupportActionBar().hide();
+        getSupportActionBar().hide();//to hide tool bar
         drawerLayout = findViewById(R.id.main_drawer_layout);
 
         nav_email = findViewById(R.id.txt_view_email);
         nav_email.setText(Global.currentUser.getEmail());
+
         nav_name = findViewById(R.id.txt_view_name);
         nav_name.setText(Global.currentUser.getFirstName() + " "+ Global.currentUser.getLastName() );
         card1 = findViewById(R.id.cardViewWater);
@@ -52,38 +53,38 @@ public class MainHome extends AppCompatActivity {
     }
 
     private static void openDrawer(DrawerLayout drawerLayout) {
-    drawerLayout.openDrawer(GravityCompat.START);
+    drawerLayout.openDrawer(GravityCompat.START);//show navigation
     }
-    public void ClickLogo(View view){
+    public void ClickLogo(View view){//close when i click on drawer pic
         closeDrawer(drawerLayout);
     }
-    public void ClickProfile(View view){
+    private static void closeDrawer(DrawerLayout drawerLayout) {//this fun. responsible on close nav.
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+    }
+    public void ClickProfile(View view)
+    {
         redirectActivity(this,Profile.class);
     }
 
-    private void redirectActivity(Activity activity , Class aClass) {
+    private void redirectActivity(Activity activity , Class aClass) {// replace intent activity
         Intent obj = new Intent(activity,aClass);
         obj.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         activity.startActivity(obj);
     }
 
     public void ClickHome(View view){
-recreate();
-    }
+           recreate();  }//open now page
+
     public void ClickLogout(View view){
-        redirectActivity(this,MainActivity.class);
+        redirectActivity(this,MainActivity.class);//go to home
 
-    }
-
-    private static void closeDrawer(DrawerLayout drawerLayout) {
-    if(drawerLayout.isDrawerOpen(GravityCompat.START)){
-        drawerLayout.closeDrawer(GravityCompat.START);
-    }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        closeDrawer(drawerLayout);
+        closeDrawer(drawerLayout);// click on any space to close navigation
     }
 }
