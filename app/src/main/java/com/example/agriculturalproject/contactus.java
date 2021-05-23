@@ -85,10 +85,10 @@ public class contactus extends AppCompatActivity {
                     your_message.requestFocus();
                     return;
                 }
-                Intent sendEmail = new Intent(android.content.Intent.ACTION_SEND);
+                Intent sendEmail = new Intent(android.content.Intent.ACTION_SEND);//ACTION_SEND == gmail and drive
                 /* Fill it with Data */
                 sendEmail.setType("plain/text");
-                sendEmail.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"dr.m.karthiik@gmail.com"});
+                sendEmail.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"dr.m.karthiik@gmail.com"});//fixed
                 sendEmail.putExtra(android.content.Intent.EXTRA_SUBJECT, subject);
                 sendEmail.putExtra(android.content.Intent.EXTRA_TEXT, "name:" + name + '\n' + "Email ID:" + email + '\n' + "Message:" + '\n' + message);
                 /* Send it off to the Activity-Chooser */
