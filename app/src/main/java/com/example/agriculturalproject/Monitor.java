@@ -1,5 +1,6 @@
 package com.example.agriculturalproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
@@ -8,11 +9,13 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.agriculturalproject.GlobalClasses.Global;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Monitor extends AppCompatActivity {
     DrawerLayout drawerLayout ;
@@ -62,6 +65,24 @@ public class Monitor extends AppCompatActivity {
                 startActivity(new Intent(Monitor.this, LightSystem.class));
             }
         });
+        BottomNavigationView btmNav = findViewById(R.id.bottom_nav_monitor);//take FROM layout()
+        btmNav.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+            @Override
+            public void onNavigationItemReselected(@NonNull MenuItem item) {
+                switch (item.getItemId())
+                {
+                    case R.id.back_monitor://back to last page
+                        //take from menu(bar_profile.xml)
+                        finish();
+
+                        break;
+
+
+                }
+
+            }
+
+        });
 
 
 
@@ -108,4 +129,5 @@ public class Monitor extends AppCompatActivity {
         super.onPause();
         closeDrawer(drawerLayout);
     }
+
 }

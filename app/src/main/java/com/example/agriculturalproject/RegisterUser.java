@@ -115,7 +115,7 @@ public class RegisterUser extends AppCompatActivity {
 
                 //TO CHICK THE EMAIL FORMAT IS CORRECT
                 if(!Patterns.EMAIL_ADDRESS.matcher(edt_reg_email_str).matches()){
-                    Toast.makeText(RegisterUser.this, "This msh email ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterUser.this, "INCORRECT EMAIL", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 //TO MAKE RECORD IN FIREBASE
