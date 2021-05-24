@@ -45,7 +45,6 @@ public class WaterSystem extends AppCompatActivity {
 
         plant_Water_Level =  findViewById(R.id.plant_Water_Level);
         plant_pump = findViewById(R.id.plant_pump);
-
         drawerLayout = findViewById(R.id.main_drawer_layout);
         getSupportActionBar().hide();//hide tool bar
 
