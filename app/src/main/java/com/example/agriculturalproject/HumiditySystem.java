@@ -6,6 +6,10 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.os.Bundle;
+import android.os.Handler;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.app.Activity;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -36,7 +40,13 @@ import org.jetbrains.annotations.NotNull;
 public class HumiditySystem extends AppCompatActivity {
     TextView plant_Humidity , plant_Soil_Moisture ,Fan ,AC;
     DatabaseReference boxes ;
-
+//here starts circle progress code
+private ProgressBar progressBar,progressBar2;
+    private TextView progressText,progressText2;
+    int i = 0,k=0;
+    //here to set the value from firebase
+    int m=90,n=500;
+//here it ends
     DrawerLayout drawerLayout ;
     TextView nav_email,nav_name ;//for main_nav_drawar
 
@@ -62,8 +72,39 @@ public class HumiditySystem extends AppCompatActivity {
                 plant_Soil_Moisture.setText(box.getSoil_Moisture());
                 Fan.setText(box.getFan());
                 AC.setText(box.getAC());
+                //here start code for circle progress
+                progressBar = findViewById(R.id.progress_bar_humidity);
+                progressText = findViewById(R.id.progress_text_humidity);
+                progressBar2 = findViewById(R.id.progress_bar_soil);
+                progressText2 = findViewById(R.id.progress_text_soil);
 
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        // set the limitation
+                        // text under the progress bar
+                        if (i <= 100) {
+                            progressText.setText("" + m);
+                            progressBar.setProgress(m);
+                            i++;
+                            handler.postDelayed(this, 200);
+                        }
+                        else {
+                            handler.removeCallbacks(this);
+                        }
+                        if (k <= 1000) {
+                            progressText2.setText("" + n);
+                            progressBar2.setProgress(n);
+                            k++;
+                            handler.postDelayed(this, 200);
+                        } else {
+                            handler.removeCallbacks(this);
+                        }
+                    }
+                }, 200);
             }
+
 
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {

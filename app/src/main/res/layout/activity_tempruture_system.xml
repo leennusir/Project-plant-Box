@@ -6,7 +6,46 @@
     android:layout_height="match_parent"
     android:id="@+id/main_drawer_layout"
     tools:context=".TemperatureSystem">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp">
+    <RelativeLayout
+        android:id="@+id/progress_layout"
+        android:layout_width="200dp"
+        android:layout_height="200dp">
 
+        <!--progress bar for humidity implementation-->
+        <ProgressBar
+            android:radius="6dp"
+            android:id="@+id/progress_bar_temperature"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/circular_shape"
+            android:indeterminate="false"
+            android:progressDrawable="@drawable/circular_progress_bar"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            />
+
+        <!--Text implementation in center of the progress bar humidity-->
+        <TextView
+            android:id="@+id/progress_text_temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="---"
+            android:textColor="@color/blue"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+    </RelativeLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

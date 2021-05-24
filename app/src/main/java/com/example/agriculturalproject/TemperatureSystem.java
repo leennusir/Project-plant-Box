@@ -8,9 +8,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -34,7 +36,13 @@ public class TemperatureSystem extends AppCompatActivity {
 
     DrawerLayout drawerLayout ;
     TextView nav_email,nav_name ;//for main_nav_drawar
-
+    //here starts circle progress code
+    private ProgressBar progressBar;
+    private TextView progressText;
+    int i = 0;
+    //here to set the value from firebase
+    int m=90;
+    //here it ends
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +62,27 @@ public class TemperatureSystem extends AppCompatActivity {
                 plant_temp.setText(box.getTemperature() );
                 plant_temp_ac.setText(box.getAC() );
                 plant_temp_fan.setText(box.getFan() );
+                //here start code for circle progress
+                progressBar = findViewById(R.id.progress_bar_temperature);
+                progressText = findViewById(R.id.progress_text_temperature);
+
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        // set the limitation
+                        // text under the progress bar
+                        if (i <= 100) {
+                            progressText.setText("" + m);
+                            progressBar.setProgress(m);
+                            i++;
+                            handler.postDelayed(this, 200);
+                        }
+                        else {
+                            handler.removeCallbacks(this);
+                        }
+                    }
+                }, 200);
 
             }
 

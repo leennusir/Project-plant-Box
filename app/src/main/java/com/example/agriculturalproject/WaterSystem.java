@@ -8,8 +8,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.agriculturalproject.GlobalClasses.Global;
@@ -28,6 +30,13 @@ public class WaterSystem extends AppCompatActivity {
     DatabaseReference Box;
     DrawerLayout drawerLayout ;
     TextView nav_email,nav_name ;//for main_nav_drawar
+    //here starts circle progress code
+    private ProgressBar progressBar;
+    private TextView progressText;
+    int i = 0;
+    //here to set the value from firebase
+    int m=90;
+    //here it ends
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +58,28 @@ public class WaterSystem extends AppCompatActivity {
                 plant_Water_Level.setText(box.getWater_Level());
 
                 plant_pump.setText(box.getPump());
+                //here start code for circle progress
+                progressBar = findViewById(R.id.progress_bar_water);
+                progressText = findViewById(R.id.progress_text_water);
+
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        // set the limitation
+                        // text under the progress bar
+                        if (i <= 100) {
+                            progressText.setText("" + m);
+                            progressBar.setProgress(m);
+                            i++;
+                            handler.postDelayed(this, 200);
+                        }
+                        else {
+                            handler.removeCallbacks(this);
+                        }
+                    }
+                }, 200);
+
 
             }
 

@@ -1,11 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/main_drawer_layout"
     tools:context=".HumiditySystem">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp">
+    <RelativeLayout
+        android:id="@+id/progress_layout"
+        android:layout_width="200dp"
+        android:layout_height="200dp">
+
+        <!--progress bar for humidity implementation-->
+        <ProgressBar
+            android:radius="6dp"
+            android:id="@+id/progress_bar_humidity"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/circular_shape"
+            android:indeterminate="false"
+            android:progressDrawable="@drawable/circular_progress_bar"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            />
+
+        <!--Text implementation in center of the progress bar humidity-->
+        <TextView
+            android:id="@+id/progress_text_humidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="---"
+            android:textColor="@color/blue"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/progress_layout_soil"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginLeft="190dp">
+        <!--progress bar for soil masure implementation-->
+        <ProgressBar
+
+            android:radius="6dp"
+            android:id="@+id/progress_bar_soil"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/circular_shape"
+            android:indeterminate="false"
+            android:progressDrawable="@drawable/circular_progress_bar_solir"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            android:max="1000"
+            />
+
+        <!--Text implementation in center of soil masure progress bar-->
+        <TextView
+            android:id="@+id/progress_text_soil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="---"
+            android:textColor="@color/blue"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+    </RelativeLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
