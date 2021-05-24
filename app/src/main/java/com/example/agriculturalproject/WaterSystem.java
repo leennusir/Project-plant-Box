@@ -82,7 +82,6 @@ public class WaterSystem extends AppCompatActivity {
 
 
             }
-
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
 
