@@ -47,9 +47,6 @@ public class WaterSystem extends AppCompatActivity {
         plant_pump = findViewById(R.id.plant_pump);
         drawerLayout = findViewById(R.id.main_drawer_layout);
         getSupportActionBar().hide();//hide tool bar
-
-
-
         Box.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
