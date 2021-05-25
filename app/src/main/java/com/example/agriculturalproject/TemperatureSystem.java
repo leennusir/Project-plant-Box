@@ -35,13 +35,14 @@ public class TemperatureSystem extends AppCompatActivity {
     DatabaseReference Box;
 
     DrawerLayout drawerLayout ;
-    TextView nav_email,nav_name ;//for main_nav_drawar
+    TextView nav_email,nav_name ;//for main_nav_ drawer
+
     //here starts circle progress code
     private ProgressBar progressBar;
     private TextView progressText;
     int i = 0;
     //here to set the value from firebase
-    int m=90;
+    int m = 100;
     //here it ends
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,30 +60,19 @@ public class TemperatureSystem extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 Boxes box = snapshot.child(Global.currentBoxes.getId_box()).getValue(Boxes.class);
+                int m = 0;
                 plant_temp.setText(box.getTemperature() );
+                if (!box.getTemperature().equals("nan")){
+                    m = Integer.parseInt(box.getTemperature());
+                }
                 plant_temp_ac.setText(box.getAC() );
                 plant_temp_fan.setText(box.getFan() );
                 //here start code for circle progress
                 progressBar = findViewById(R.id.progress_bar_temperature);
                 progressText = findViewById(R.id.progress_text_temperature);
-
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        // set the limitation
-                        // text under the progress bar
-                        if (i <= 100) {
-                            progressText.setText("" + m);
-                            progressBar.setProgress(m);
-                            i++;
-                            handler.postDelayed(this, 200);
-                        }
-                        else {
-                            handler.removeCallbacks(this);
-                        }
-                    }
-                }, 200);
+                int finalM = m;
+                progressText.setText(String.valueOf(finalM));
+                progressBar.setProgress(finalM);
 
             }
 
