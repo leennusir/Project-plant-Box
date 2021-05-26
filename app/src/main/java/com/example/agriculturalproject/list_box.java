@@ -179,7 +179,7 @@ public class  list_box extends AppCompatActivity implements PaymentResultListene
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Pay id");
         builder.setMessage("Successful purchase");
-        Boxes boxes = new Boxes("https://i.imgur.com/8K3n51X.jpg",
+        Boxes boxes = new Boxes("@drawable/iconbox",
                 name.getText().toString(),
                 plant_name.getSelectedItem().toString(),
                 FirebaseAuth.getInstance().getCurrentUser().getUid()
