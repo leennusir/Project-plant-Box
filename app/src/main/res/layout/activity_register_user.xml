@@ -4,9 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/signup"
+
     android:foregroundTint="#FFFFFF"
     tools:context=".RegisterUser">
+
+    <RelativeLayout
+    android:background="@drawable/creataccounfinal111"
+
+    android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="-2dp"
+            android:paddingTop="0dp"
+            app:itemBackground="@color/green2"
+            app:itemIconTint="@color/bottom_text"
+            app:itemTextColor="@color/bottom_text"
+            app:menu="@menu/bar_menu_register"
+            tools:ignore="NotSibling">
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    </RelativeLayout>
 
     <EditText
         android:id="@+id/edt_reg_first_name"
@@ -100,7 +133,7 @@
         android:layout_height="45dp"
         android:backgroundTint="#FFFFFF"
         android:drawableTint="#FFFFFF"
-        android:text="Sign Up"
+        android:text="Signup"
         android:textColor="#00692B"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -112,48 +145,21 @@
 
     <Spinner
         android:id="@+id/spinner_id"
-        android:layout_width="329dp"
-        android:layout_height="43dp"
-        android:backgroundTint="@color/white"
+        android:layout_width="321dp"
+        android:layout_height="36dp"
+
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/material_on_primary_emphasis_high_type"
         android:foregroundTint="@color/white"
         android:scrollbarThumbHorizontal="@color/white"
         android:scrollbarThumbVertical="@color/white"
+        android:textColor="@color/bottom_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.585"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.671" />
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_register"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="-2dp"
-            android:paddingTop="0dp"
-            app:itemBackground="@color/green2"
-            app:itemIconTint="@color/bottom_text"
-            app:itemTextColor="@color/bottom_text"
-            app:menu="@menu/bar_menu_register"
-            tools:ignore="NotSibling">
-
-        </com.google.android.material.bottomnavigation.BottomNavigationView>
-
-    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

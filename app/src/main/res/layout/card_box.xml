@@ -19,24 +19,23 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/green2"
-        android:backgroundTint="@color/green2"
+        android:background="@drawable/addbox"
+
         android:gravity="center"
         android:orientation="vertical"
         android:padding="10dp">
 
 
-
-
         <ImageView
             android:id="@+id/box_image"
-            android:layout_width="98dp"
-            android:layout_height="104dp"
-            android:background="@drawable/icons8_box_500"
+            android:layout_width="70dp"
+            android:layout_height="84dp"
+            android:background="@drawable/icobox"
             android:padding="0dp"
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toTopOf="@+id/box_name"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -54,7 +53,7 @@
             android:text="Name of Menu"
             android:textColor="@color/green2"
             android:textColorLink="@color/green2"
-            android:textSize="13sp"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/box_image"
             app:layout_constraintStart_toStartOf="@+id/box_image"
@@ -74,7 +73,7 @@
             android:text="Name of Menu"
             android:textColor="@color/green2"
             android:textColorLink="@color/green2"
-            android:textSize="13sp"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/box_name"
             app:layout_constraintHorizontal_bias="0.0"

@@ -72,7 +72,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="18dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_weight="1"
                 android:padding="12px"
@@ -80,7 +80,8 @@
                 android:text="Home"
                 android:textAlignment="viewStart"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:textStyle="italic"/>
 
 
         </LinearLayout>
