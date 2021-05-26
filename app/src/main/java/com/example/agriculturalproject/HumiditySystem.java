@@ -71,7 +71,8 @@ public class HumiditySystem extends AppCompatActivity {
                 int n=0;
 
                 if (!box.getHumidity().equals("nan")){
-                    m = Integer.parseInt(box.getHumidity());
+                    float f = Float.parseFloat(box.getHumidity());
+                    m = Math.round(f);
                 }
                 AC.setText(box.getAC() );
                 Fan.setText(box.getFan() );
@@ -87,7 +88,8 @@ public class HumiditySystem extends AppCompatActivity {
 
                 if(!box.getSoil_Moisture().equals("nan"))
                 {
-                    n= Integer.parseInt(box.getSoil_Moisture());
+                    float  f =  Float.parseFloat(box.getSoil_Moisture());
+                    n= Math.round(f);
                 }
                 //here start code for circle progress
                 progressBarsoil = findViewById(R.id.progress_bar_soil);

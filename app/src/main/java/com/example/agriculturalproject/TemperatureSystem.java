@@ -61,7 +61,8 @@ public class    TemperatureSystem extends AppCompatActivity {
                 Boxes box = snapshot.child(Global.currentBoxes.getId_box()).getValue(Boxes.class);
                 int m = 0;
                 if (!box.getTemperature().equals("nan")){
-                    m = Integer.parseInt(box.getTemperature());
+                    float f = Float.parseFloat(box.getTemperature());
+                    m = Math.round(f);
                 }
                 plant_temp_ac.setText(box.getAC() );
                 plant_temp_fan.setText(box.getFan() );

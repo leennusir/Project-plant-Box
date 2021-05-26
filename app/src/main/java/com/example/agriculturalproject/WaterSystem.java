@@ -60,7 +60,8 @@ public class WaterSystem extends AppCompatActivity {
                 int m = 0;
 
                 if (!box.getWater_Level().equals("nan")){
-                    m = Integer.parseInt(box.getWater_Level());
+                    float f =Float.parseFloat(box.getWater_Level());
+                    m = Math.round(f);
                 }
                 plant_pump.setText(box.getPump() );
                 //here start code for circle progress
