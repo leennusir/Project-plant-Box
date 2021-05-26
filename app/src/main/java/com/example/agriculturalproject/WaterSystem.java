@@ -26,7 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 import org.jetbrains.annotations.NotNull;
 
 public class WaterSystem extends AppCompatActivity {
-    TextView  plant_Water_Level , plant_pump;
+    TextView   plant_pump;
     DatabaseReference Box;
     DrawerLayout drawerLayout ;
     TextView nav_email,nav_name ;//for main_nav_drawar
@@ -43,7 +43,7 @@ public class WaterSystem extends AppCompatActivity {
         setContentView(R.layout.activity_water_system);
         Box = FirebaseDatabase.getInstance().getReference("Boxes"); //Boxes table from firebase
 
-        plant_Water_Level =  findViewById(R.id.plant_Water_Level);
+
         plant_pump = findViewById(R.id.plant_pump);
         drawerLayout = findViewById(R.id.main_drawer_layout);
         getSupportActionBar().hide();//hide tool bar
@@ -51,33 +51,27 @@ public class WaterSystem extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 Boxes box = snapshot.child(Global.currentBoxes.getId_box()).getValue(Boxes.class);
-                plant_Water_Level.setText(box.getWater_Level());
 
                 plant_pump.setText(box.getPump());
                 //here start code for circle progress
                 progressBar = findViewById(R.id.progress_bar_water);
                 progressText = findViewById(R.id.progress_text_water);
 
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        // set the limitation
-                        // text under the progress bar
-                        if (i <= 100) {
-                            progressText.setText("" + m);
-                            progressBar.setProgress(m);
-                            i++;
-                            handler.postDelayed(this, 200);
-                        }
-                        else {
-                            handler.removeCallbacks(this);
-                        }
-                    }
-                }, 200);
+                int m = 0;
 
+                if (!box.getWater_Level().equals("nan")){
+                    m = Integer.parseInt(box.getWater_Level());
+                }
+                plant_pump.setText(box.getPump() );
+                //here start code for circle progress
+                progressBar = findViewById(R.id.progress_bar_water);
+                progressText = findViewById(R.id.progress_text_water);
+                int finalM = m;
+                progressText.setText(String.valueOf(finalM));
+                progressBar.setProgress(finalM);
 
             }
+
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
 

@@ -29,8 +29,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 
-public class TemperatureSystem extends AppCompatActivity {
-    TextView  plant_temp ;
+public class    TemperatureSystem extends AppCompatActivity {
     TextView plant_temp_ac , plant_temp_fan;
     DatabaseReference Box;
 
@@ -52,7 +51,7 @@ public class TemperatureSystem extends AppCompatActivity {
         drawerLayout = findViewById(R.id.main_drawer_layout);
         getSupportActionBar().hide();//hide tool bar
 
-        plant_temp = findViewById(R.id.plant_temp);
+
         plant_temp_ac = findViewById(R.id.plant_temp_AC);
         plant_temp_fan = findViewById(R.id.plant_temp_fan);
 
@@ -61,7 +60,6 @@ public class TemperatureSystem extends AppCompatActivity {
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 Boxes box = snapshot.child(Global.currentBoxes.getId_box()).getValue(Boxes.class);
                 int m = 0;
-                plant_temp.setText(box.getTemperature() );
                 if (!box.getTemperature().equals("nan")){
                     m = Integer.parseInt(box.getTemperature());
                 }

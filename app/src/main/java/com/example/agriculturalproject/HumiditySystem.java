@@ -38,14 +38,12 @@ import com.google.firebase.database.ValueEventListener;
 import org.jetbrains.annotations.NotNull;
 
 public class HumiditySystem extends AppCompatActivity {
-    TextView plant_Humidity , plant_Soil_Moisture ,Fan ,AC;
+    TextView Fan ,AC;
     DatabaseReference boxes ;
-//here starts circle progress code
-private ProgressBar progressBar,progressBar2;
-    private TextView progressText,progressText2;
-    int i = 0,k=0;
+    //here starts circle progress code
+    private ProgressBar progressBar,progressBarsoil;
+    private TextView progressText,progressTextsoil;
     //here to set the value from firebase
-    int m=90,n=500;
 //here it ends
     DrawerLayout drawerLayout ;
     TextView nav_email,nav_name ;//for main_nav_drawar
@@ -59,51 +57,47 @@ private ProgressBar progressBar,progressBar2;
         getSupportActionBar().hide();//hide tool bar
 
 
-        boxes = FirebaseDatabase.getInstance().getReference().child("Boxes");
-        plant_Humidity = findViewById(R.id.plant_humidity);
-        plant_Soil_Moisture = findViewById(R.id.plant_Soil_Moisture);
+        boxes = FirebaseDatabase.getInstance().getReference("Boxes");
         Fan = findViewById(R.id.plant_humidity_fan);
         AC = findViewById(R.id.plant_humidity_AC);
         boxes.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 Boxes box = snapshot.child(Global.currentBoxes.getId_box()).getValue(Boxes.class);
-                plant_Humidity.setText(box.getHumidity());
-                plant_Soil_Moisture.setText(box.getSoil_Moisture());
                 Fan.setText(box.getFan());
                 AC.setText(box.getAC());
                 //here start code for circle progress
+                int m = 0;
+                int n=0;
+
+                if (!box.getHumidity().equals("nan")){
+                    m = Integer.parseInt(box.getHumidity());
+                }
+                AC.setText(box.getAC() );
+                Fan.setText(box.getFan() );
+                //here start code for circle progress
                 progressBar = findViewById(R.id.progress_bar_humidity);
                 progressText = findViewById(R.id.progress_text_humidity);
-                progressBar2 = findViewById(R.id.progress_bar_soil);
-                progressText2 = findViewById(R.id.progress_text_soil);
+                int finalM = m;
+                progressText.setText(String.valueOf(finalM));
+                progressBar.setProgress(finalM);
 
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        // set the limitation
-                        // text under the progress bar
-                        if (i <= 100) {
-                            progressText.setText("" + m);
-                            progressBar.setProgress(m);
-                            i++;
-                            handler.postDelayed(this, 200);
-                        }
-                        else {
-                            handler.removeCallbacks(this);
-                        }
-                        if (k <= 1000) {
-                            progressText2.setText("" + n);
-                            progressBar2.setProgress(n);
-                            k++;
-                            handler.postDelayed(this, 200);
-                        } else {
-                            handler.removeCallbacks(this);
-                        }
-                    }
-                }, 200);
+                //---------------------------------------------------
+
+
+                if(!box.getSoil_Moisture().equals("nan"))
+                {
+                    n= Integer.parseInt(box.getSoil_Moisture());
+                }
+                //here start code for circle progress
+                progressBarsoil = findViewById(R.id.progress_bar_soil);
+                progressTextsoil = findViewById(R.id.progress_text_soil);
+                int finalN = n;
+                progressTextsoil.setText(String.valueOf(finalN));
+                progressBarsoil.setProgress(finalN);
+
             }
+
 
 
             @Override
