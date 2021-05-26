@@ -6,7 +6,46 @@
     android:layout_height="match_parent"
     android:id="@+id/main_drawer_layout"
     tools:context=".TemperatureSystem">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp">
+        <RelativeLayout
+            android:id="@+id/progress_layout"
+            android:layout_width="200dp"
+            android:layout_height="200dp">
 
+            <!--progress bar for humidity implementation-->
+            <ProgressBar
+                android:radius="6dp"
+                android:id="@+id/progress_bar_temperature"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/circular_shape"
+                android:indeterminate="false"
+                android:progressDrawable="@drawable/circular_progress_bar"
+                android:textAlignment="center"
+                android:gravity="center_horizontal"
+                />
+
+            <!--Text implementation in center of the progress bar humidity-->
+            <TextView
+                android:id="@+id/progress_text_temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:text="---"
+                android:textColor="@color/blue"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+    </RelativeLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -24,16 +63,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.697" />
 
-        <TextView
-            android:id="@+id/plant_temp"
-            android:layout_width="237dp"
-            android:layout_height="43dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.385"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.231" />
+
 
         <TextView
             android:id="@+id/plant_temp_AC"
@@ -60,19 +90,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.339" />
 
-        <EditText
-            android:id="@+id/editTextTextPersonName9"
-            android:layout_width="204dp"
-            android:layout_height="53dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Temperature System"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.367"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.135" />
+
 
         <EditText
             android:id="@+id/editTextTextPersonName8"

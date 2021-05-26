@@ -8,8 +8,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.agriculturalproject.GlobalClasses.Global;
@@ -24,31 +26,49 @@ import com.google.firebase.database.ValueEventListener;
 import org.jetbrains.annotations.NotNull;
 
 public class WaterSystem extends AppCompatActivity {
-    TextView  plant_Water_Level , plant_pump;
+    TextView   plant_pump;
     DatabaseReference Box;
     DrawerLayout drawerLayout ;
     TextView nav_email,nav_name ;//for main_nav_drawar
+    //here starts circle progress code
+    private ProgressBar progressBar;
+    private TextView progressText;
+    int i = 0;
+    //here to set the value from firebase
+    int m=90;
+    //here it ends
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_water_system);
         Box = FirebaseDatabase.getInstance().getReference("Boxes"); //Boxes table from firebase
 
-        plant_Water_Level =  findViewById(R.id.plant_Water_Level);
-        plant_pump = findViewById(R.id.plant_pump);
 
+        plant_pump = findViewById(R.id.plant_pump);
         drawerLayout = findViewById(R.id.main_drawer_layout);
         getSupportActionBar().hide();//hide tool bar
-
-
-
         Box.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 Boxes box = snapshot.child(Global.currentBoxes.getId_box()).getValue(Boxes.class);
-                plant_Water_Level.setText(box.getWater_Level());
 
                 plant_pump.setText(box.getPump());
+                //here start code for circle progress
+                progressBar = findViewById(R.id.progress_bar_water);
+                progressText = findViewById(R.id.progress_text_water);
+
+                int m = 0;
+
+                if (!box.getWater_Level().equals("nan")){
+                    m = Integer.parseInt(box.getWater_Level());
+                }
+                plant_pump.setText(box.getPump() );
+                //here start code for circle progress
+                progressBar = findViewById(R.id.progress_bar_water);
+                progressText = findViewById(R.id.progress_text_water);
+                int finalM = m;
+                progressText.setText(String.valueOf(finalM));
+                progressBar.setProgress(finalM);
 
             }
 

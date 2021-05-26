@@ -8,9 +8,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -27,14 +29,20 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 
-public class TemperatureSystem extends AppCompatActivity {
-    TextView  plant_temp ;
+public class    TemperatureSystem extends AppCompatActivity {
     TextView plant_temp_ac , plant_temp_fan;
     DatabaseReference Box;
 
     DrawerLayout drawerLayout ;
-    TextView nav_email,nav_name ;//for main_nav_drawar
+    TextView nav_email,nav_name ;//for main_nav_ drawer
 
+    //here starts circle progress code
+    private ProgressBar progressBar;
+    private TextView progressText;
+    int i = 0;
+    //here to set the value from firebase
+    int m = 100;
+    //here it ends
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +51,7 @@ public class TemperatureSystem extends AppCompatActivity {
         drawerLayout = findViewById(R.id.main_drawer_layout);
         getSupportActionBar().hide();//hide tool bar
 
-        plant_temp = findViewById(R.id.plant_temp);
+
         plant_temp_ac = findViewById(R.id.plant_temp_AC);
         plant_temp_fan = findViewById(R.id.plant_temp_fan);
 
@@ -51,9 +59,18 @@ public class TemperatureSystem extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 Boxes box = snapshot.child(Global.currentBoxes.getId_box()).getValue(Boxes.class);
-                plant_temp.setText(box.getTemperature() );
+                int m = 0;
+                if (!box.getTemperature().equals("nan")){
+                    m = Integer.parseInt(box.getTemperature());
+                }
                 plant_temp_ac.setText(box.getAC() );
                 plant_temp_fan.setText(box.getFan() );
+                //here start code for circle progress
+                progressBar = findViewById(R.id.progress_bar_temperature);
+                progressText = findViewById(R.id.progress_text_temperature);
+                int finalM = m;
+                progressText.setText(String.valueOf(finalM));
+                progressBar.setProgress(finalM);
 
             }
 
