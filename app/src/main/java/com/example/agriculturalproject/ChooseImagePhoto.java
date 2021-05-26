@@ -86,13 +86,12 @@ public class ChooseImagePhoto extends AppCompatActivity {
     private void goToGallery() {
         Intent selectPhoto = new Intent(Intent.ACTION_PICK);
         selectPhoto.setType("image/*"); //image path  in phone
-        startActivityForResult(selectPhoto,RESULT_LOAD_IMG);//selectPhoto==path
-                                                            ////resultCode==empty
+        startActivityForResult(selectPhoto,RESULT_LOAD_IMG);//selectPhoto==path //resultCode==empty
+
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {//resultCode==empty
                                                                                              //data==img
-        Toast.makeText(this, String.valueOf(requestCode), Toast.LENGTH_SHORT).show();
 
         if (resultCode == Activity.RESULT_OK) {//exist img
             if (requestCode == RESULT_LOAD_IMG){
