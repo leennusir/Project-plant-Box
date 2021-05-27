@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rotate
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:fromDegrees="270"
-    android:toDegrees="270">
+    android:fromDegrees="450"
+    android:toDegrees="450">
 
     <!--styling the progress bar-->
     <shape
@@ -14,8 +14,8 @@
         <gradient
         android:radius="6dp"
             android:angle="0"
-            android:endColor="@color/blue"
-            android:startColor="@color/blue1"
+            android:endColor="@color/green5"
+            android:startColor="@color/green4"
             android:type="sweep"
             android:useLevel="false" />
     </shape>

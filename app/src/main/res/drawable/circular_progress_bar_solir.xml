@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rotate
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:fromDegrees="270"
-    android:toDegrees="270">
+    android:fromDegrees="450"
+    android:toDegrees="450">
 
     <!--styling the progress bar-->
     <shape
