@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.agriculturalproject.GlobalClasses.Global;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -23,11 +24,15 @@ import java.util.regex.Pattern;
 public class contactus extends AppCompatActivity {
     DrawerLayout drawerLayout ;
     TextView nav_email,nav_name;
+    private EditText eMsg;
+    private Button btn;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contactus);
         getSupportActionBar().hide();
+        eMsg = (EditText)findViewById(R.id.your_message);
+        btn = (Button)findViewById(R.id.post_message);
         drawerLayout = findViewById(R.id.main_drawer_layout);
         nav_email = findViewById(R.id.txt_view_email);
         nav_email.setText(Global.currentUser.getEmail());
@@ -51,39 +56,22 @@ public class contactus extends AppCompatActivity {
             }
 
         });
-        final EditText your_name = (EditText) findViewById(R.id.your_name);
-        final EditText your_email = (EditText) findViewById(R.id.your_email);
-        final EditText your_subject = (EditText) findViewById(R.id.your_subject);
-        final EditText your_message = (EditText) findViewById(R.id.your_message);
-        Button email = (Button) findViewById(R.id.post_message);
-        email.setOnClickListener(new View.OnClickListener()
-        {
+
+        
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick (View v){
-                String name = your_name.getText().toString();
-                String email = your_email.getText().toString();
-                String subject = your_subject.getText().toString();
-                String message = your_message.getText().toString();
-                if (TextUtils.isEmpty(name)) {
-                    your_name.setError("Enter Your Name");
-                    your_name.requestFocus();
-                    return;
+            public void onClick(View v) {
+                Intent it = new Intent(Intent.ACTION_SEND);
+                it.setType("message/html");
+                it.putExtra(Intent.EXTRA_EMAIL , new String[] {"haithamodehodeh@gmail.com"} );
+                it.putExtra(Intent.EXTRA_SUBJECT ,"Feedback from App");
+                it.putExtra(Intent.EXTRA_TEXT ,"Message: "+eMsg.getText());
+                try {
+                    startActivity(Intent.createChooser(it,"Choose Mail App"));
                 }
-                Boolean onError = false;
-                if (!isValidEmail(email)) {
-                    onError = true;
-                    your_email.setError("Invalid Email");
-                    return;
-                }
-                if (TextUtils.isEmpty(subject)) {
-                    your_subject.setError("Enter Your Subject");
-                    your_subject.requestFocus();
-                    return;
-                }
-                if (TextUtils.isEmpty(message)) {
-                    your_message.setError("Enter Your Message");
-                    your_message.requestFocus();
-                    return;
+                catch (android.content.ActivityNotFoundException ex)
+                {
+                    Toast.makeText(contactus.this,"There are no email Clients",Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -151,5 +139,3 @@ public class contactus extends AppCompatActivity {
         return matcher.matches();
     }
 }
-
-
