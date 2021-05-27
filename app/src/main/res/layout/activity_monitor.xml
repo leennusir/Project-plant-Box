@@ -5,8 +5,18 @@
     android:id="@+id/main_drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/monitorfinal"
+
     tools:context=".Monitor">
+
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+
+        android:background="@color/white">
+
+        <include layout="@layout/main_nav_drawer" />
+    </RelativeLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -19,90 +29,6 @@
             layout="@layout/main_toolbar" />
 
 
-        <GridLayout
-            android:id="@+id/gridLayout"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="110dp"
-            android:layout_marginBottom="60dp"
-            android:alignmentMode="alignMargins"
-            android:columnCount="1"
-            android:columnOrderPreserved="false"
-            android:padding="14dp"
-            android:rowCount="3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="@id/bg_top_header"
-            app:layout_constraintVertical_bias="0.0"
-            app:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteX="-32dp">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewWater"
-                android:layout_width="6dp"
-                android:layout_height="126dp"
-                android:layout_row="0"
-                android:layout_rowWeight="0"
-                android:layout_columnWeight="1"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                android:foreground="@drawable/watersys"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="6dp" />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewHumidity"
-                android:layout_width="0dp"
-                android:layout_height="126dp"
-                android:layout_rowWeight="0"
-                android:layout_columnWeight="1"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                android:foreground="@drawable/humsys"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="6dp" />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewTemperature"
-                android:layout_width="0dp"
-                android:layout_height="126dp"
-                android:layout_rowWeight="0"
-                android:layout_columnWeight="1"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                android:foreground="@drawable/temsys"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="6dp" />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewLight"
-                android:layout_width="0dp"
-                android:layout_height="126dp"
-                android:layout_rowWeight="0"
-                android:layout_columnWeight="1"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                android:foreground="@drawable/ligsys"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="6dp">
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:layout_margin="16dp"
-                    android:gravity="center"
-                    android:orientation="vertical" />
-
-            </androidx.cardview.widget.CardView>
-
-
-        </GridLayout>
-
         <RelativeLayout
             android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
@@ -114,7 +40,90 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintVertical_bias="1.0">
+
+            <GridLayout
+                android:id="@+id/gridLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="9dp"
+                android:layout_marginBottom="10dp"
+                android:alignmentMode="alignBounds"
+                android:columnCount="1"
+                android:columnOrderPreserved="false"
+                android:padding="14dp"
+                android:rowCount="3"
+                app:layout_editor_absoluteX="0dp">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewWater"
+                    android:layout_width="6dp"
+                    android:layout_height="126dp"
+                    android:layout_row="0"
+                    android:layout_rowWeight="0"
+                    android:layout_columnWeight="1"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:foreground="@drawable/watersys"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="6dp" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewHumidity"
+                    android:layout_width="0dp"
+                    android:layout_height="126dp"
+                    android:layout_rowWeight="0"
+                    android:layout_columnWeight="1"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:foreground="@drawable/humsys"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="6dp" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewTemperature"
+                    android:layout_width="0dp"
+                    android:layout_height="126dp"
+                    android:layout_rowWeight="0"
+                    android:layout_columnWeight="1"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:foreground="@drawable/temsys"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="6dp" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewLight"
+                    android:layout_width="0dp"
+                    android:layout_height="126dp"
+                    android:layout_rowWeight="0"
+                    android:layout_columnWeight="1"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:foreground="@drawable/ligsys"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="6dp">
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:layout_margin="16dp"
+                        android:gravity="center"
+                        android:orientation="vertical" />
+
+                </androidx.cardview.widget.CardView>
+
+
+            </GridLayout>
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/bottom_nav_monitor"
@@ -130,18 +139,9 @@
                 tools:ignore="NotSibling">
 
             </com.google.android.material.bottomnavigation.BottomNavigationView>
+
         </RelativeLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <RelativeLayout
-        android:layout_width="300dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-
-        android:background="@color/white">
-
-        <include layout="@layout/main_nav_drawer" />
-    </RelativeLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>
