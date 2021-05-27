@@ -155,7 +155,8 @@ public class LightSystem extends AppCompatActivity {
     public void ClickProfile(View view){
         redirectActivity(this,Profile.class);
     }
-
+    public void Clickprivacypolicy(View view){redirectActivity(this,privacypolicy.class);}
+    public void Clickcontactus(View view){redirectActivity(this,contactus.class);}
     private void redirectActivity(Activity activity , Class aClass) {
         Intent obj = new Intent(activity,aClass);
         obj.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
