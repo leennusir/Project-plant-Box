@@ -2,9 +2,10 @@
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/main_drawer_layout"
+    android:background="@drawable/laysysinterface"
     tools:context=".LightSystem">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -12,30 +13,9 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <include layout="@layout/main_toolbar"/>
-        <Switch
-            android:id="@+id/switch_led"
-            android:layout_width="187dp"
-            android:layout_height="41dp"
-            android:text="Switch"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.571"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.778" />
-
-        <TextView
-            android:id="@+id/switch_led_auto"
-            android:layout_width="187dp"
-            android:layout_height="41dp"
-            android:text="Switch"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.406"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.559" />
+        <include
+            android:id="@+id/include3"
+            layout="@layout/main_toolbar" />
 
 
         <RelativeLayout
@@ -46,7 +26,7 @@
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0">
@@ -66,6 +46,37 @@
 
             </com.google.android.material.bottomnavigation.BottomNavigationView>
 
+            <TextView
+                android:id="@+id/switch_led_auto"
+
+                android:layout_width="111dp"
+
+                android:layout_height="32dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="266dp"
+                android:layout_marginLeft="193dp"
+                android:layout_marginEnd="35dp"
+                android:layout_marginTop="220dp"
+
+                android:background="@drawable/buttongreen"
+                android:text="Switch"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Switch
+                android:id="@+id/switch_led"
+                android:layout_width="90dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="275dp"
+                android:layout_marginTop="315dp"
+                android:background="@drawable/buttongreen"
+
+
+                />
+
         </RelativeLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -77,7 +88,7 @@
 
         android:background="@color/white">
 
-        <include layout="@layout/main_nav_drawer"/>
+        <include layout="@layout/main_nav_drawer" />
     </RelativeLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>
