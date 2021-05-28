@@ -12,53 +12,61 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <include layout="@layout/main_toolbar" />
+
+        <include
+            android:id="@+id/include4"
+            layout="@layout/main_toolbar" />
 
 
+        <RelativeLayout
 
-            <RelativeLayout
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                tools:ignore="MissingConstraints">
-
-
-                <TextView
-                    android:layout_marginTop="70dp"
-                    android:layout_width="fill_parent"
-                    android:layout_height="32dp"
-                    android:paddingLeft="3dp"
-                    android:text="@string/contact_form_message"
-                    android:textAllCaps="true"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="12sp" />
-
-                <Button
-                    android:layout_marginTop="300dp"
-                    android:layout_centerHorizontal="true"
-                    android:id="@+id/post_message"
-                    android:layout_width="wrap_content"
-                    android:layout_height="32dp"
-                    android:layout_gravity="center"
-                    android:background="@color/colorPrimary"
-                    android:paddingLeft="15dp"
-                    android:paddingTop="1dp"
-                    android:paddingRight="15dp"
-                    android:paddingBottom="1dp"
-                    android:text="@string/contact_form_button"
-                    android:textAllCaps="true"
-                    android:textColor="@android:color/white"
-                    android:textSize="13sp" />
-            </RelativeLayout>
+            android:id="@+id/relativeLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
 
 
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="70dp"
+                android:background="@drawable/rectangle"
+                android:paddingLeft="3dp"
+                android:text="@string/contact_form_message"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
+
+        </RelativeLayout>
+
+
+        <Button
+            android:id="@+id/post_message"
+            android:layout_width="300dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="290dp"
+            android:background="@drawable/greenbutton"
+            android:paddingLeft="15dp"
+            android:paddingTop="1dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="1dp"
+            android:text="@string/contact_form_button"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/relativeLayout"
+            app:layout_constraintTop_toBottomOf="@+id/include4" />
 
         <RelativeLayout
             android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
             android:backgroundTint="@color/green2"
             android:foregroundTint="@color/green2"
             android:orientation="vertical"
@@ -67,9 +75,8 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
 
-            >
+            app:layout_constraintVertical_bias="0.0">
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/bottom_nav_contactus"
@@ -87,15 +94,20 @@
             </com.google.android.material.bottomnavigation.BottomNavigationView>
 
             <EditText
-                android:layout_marginTop="100dp"
                 android:id="@+id/your_message"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
+                android:layout_width="350dp"
+                android:layout_height="279dp"
+                android:layout_above="@+id/bottom_nav_contactus"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="160dp"
                 android:height="180dp"
+                android:background="@drawable/boardmesseage"
                 android:gravity="top"
                 android:inputType="textMultiLine"
-                android:textSize="14sp" />
+                android:textAlignment="center"
+                android:textSize="20sp" />
 
         </RelativeLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

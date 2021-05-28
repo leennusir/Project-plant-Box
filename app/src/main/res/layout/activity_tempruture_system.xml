@@ -6,28 +6,35 @@
     android:layout_height="match_parent"
     android:id="@+id/main_drawer_layout"
     tools:context=".TemperatureSystem">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="60dp">
+        android:layout_marginTop="60dp"
+        android:background="@drawable/temsysinterface">
+
         <RelativeLayout
             android:id="@+id/progress_layout"
             android:layout_width="200dp"
-            android:layout_height="200dp">
+            android:layout_height="200dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="105dp"
+            android:layout_marginTop="230dp"
+            android:layout_marginEnd="105dp">
 
             <!--progress bar for humidity implementation-->
             <ProgressBar
-                android:radius="6dp"
                 android:id="@+id/progress_bar_temperature"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/circular_shape"
+                android:gravity="center_horizontal"
                 android:indeterminate="false"
                 android:progressDrawable="@drawable/circular_progress_bar"
-                android:textAlignment="center"
-                android:gravity="center_horizontal"
-                />
+                android:radius="6dp"
+                android:textAlignment="center" />
 
             <!--Text implementation in center of the progress bar humidity-->
             <TextView
@@ -39,9 +46,8 @@
                 android:layout_centerVertical="true"
                 android:gravity="center"
                 android:text="---"
-                android:textColor="@color/blue"
-                android:textSize="28sp"
-                android:textStyle="bold" />
+                android:textColor="@color/green4"
+                android:textSize="28sp" />
 
 
         </RelativeLayout>
@@ -54,57 +60,46 @@
 
         <TextView
             android:id="@+id/plant_temp_fan"
-            android:layout_width="237dp"
-            android:layout_height="43dp"
+            android:layout_width="111dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="183dp"
+            android:layout_marginTop="290dp"
+            android:background="@drawable/buttongreen"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.436"
+            app:layout_constraintHorizontal_bias="0.543"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.697" />
-
+            app:layout_constraintVertical_bias="0.658" />
 
 
         <TextView
             android:id="@+id/plant_temp_AC"
-            android:layout_width="237dp"
-            android:layout_height="43dp"
+            android:layout_width="111dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="183dp"
+            android:layout_marginTop="170dp"
+            android:background="@drawable/buttongreen"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.488"
+            app:layout_constraintHorizontal_bias="0.543"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.433" />
-
-        <EditText
-            android:id="@+id/editTextTextPersonName2"
-            android:layout_width="204dp"
-            android:layout_height="53dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="AC"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.367"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.339" />
+            app:layout_constraintVertical_bias="0.658" />
 
 
 
-        <EditText
-            android:id="@+id/editTextTextPersonName8"
-            android:layout_width="204dp"
-            android:layout_height="53dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Fan"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.41"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.581" />
+
+
+
 
         <RelativeLayout
             android:id="@+id/relativeLayout"
