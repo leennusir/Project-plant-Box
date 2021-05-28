@@ -38,7 +38,7 @@ public class PlantsList extends AppCompatActivity {
 
         recyclerPlants = findViewById(R.id.recycle_plant);//recycle_plant==هو اللي بنعرض جواته البوكسات
         recyclerPlants.setHasFixedSize(true);//to make recyclerview Fixed
-        recyclerPlants.setLayoutManager(new GridLayoutManager(this , 2));//1 or any num card in the same line(ع السطر الواحد كم بوكس)
+        recyclerPlants.setLayoutManager(new GridLayoutManager(this , 1));//1 or any num card in the same line(ع السطر الواحد كم بوكس)
         Plant = FirebaseDatabase.getInstance().getReference("Plants"); //Boxes table from firebase
         getPlants(); //function(call)
         nav_email = findViewById(R.id.txt_view_email);
@@ -57,7 +57,7 @@ public class PlantsList extends AppCompatActivity {
                 adapter_plants.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int pos, boolean isLongClick) {
-//                        Toast.makeText(PlantsList.this, "333", Toast.LENGTH_SHORT).show();
+                        Global.currentPlants = plants;
                         startActivity(new Intent(PlantsList.this,Plants_information.class));
                     }
                 });

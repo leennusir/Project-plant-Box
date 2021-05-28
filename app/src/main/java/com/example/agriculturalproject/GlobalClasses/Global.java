@@ -1,6 +1,7 @@
 package com.example.agriculturalproject.GlobalClasses;
 
 import com.example.agriculturalproject.Models.Boxes;
+import com.example.agriculturalproject.Models.Plants;
 import com.example.agriculturalproject.Models.Users;
 
 public class Global {
@@ -9,4 +10,7 @@ public class Global {
 
     public static Boxes currentBoxes;//static class: Boxes
                                      // object : currentUser
+
+    public static Plants currentPlants;
+
 }
