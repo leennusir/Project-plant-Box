@@ -57,7 +57,8 @@ public class PlantsList extends AppCompatActivity {
                 adapter_plants.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int pos, boolean isLongClick) {
-                        Toast.makeText(PlantsList.this, "", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(PlantsList.this, "333", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(PlantsList.this,Plants_information.class));
                     }
                 });
             }
