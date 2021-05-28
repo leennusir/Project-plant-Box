@@ -69,7 +69,7 @@ public class ImageProcess extends AppCompatActivity {
     }
     private void connectServer(View v) {
 
-        String postUrl= "http://192.168.1.4:80/";//api link
+        String postUrl= "http://167.71.63.72:80/";//api link
         ByteArrayOutputStream stream = new ByteArrayOutputStream();//initialise ByteArray
         BitmapFactory.Options options = new BitmapFactory.Options();//initialise BitmapFactory
         options.inPreferredConfig = Bitmap.Config.RGB_565;
