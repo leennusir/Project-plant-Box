@@ -42,16 +42,16 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class list_box extends AppCompatActivity implements PaymentResultListener {//payment system (عملية الدفع)
+public class  list_box extends AppCompatActivity implements PaymentResultListener {//payment system (عملية الدفع)
     RecyclerView recyclerBoxes;
     DatabaseReference Box;//to get boxes from firebase()
     FirebaseRecyclerAdapter<Boxes, Adapter_Boxes> related_Boxes ; //Boxes = class
 
     DrawerLayout drawerLayout ;
-
+    TextView nav_email,nav_name ;//for main_nav_drawar
     EditText name;
     Spinner   plant_name;//select the plant
-    TextView nav_email,nav_name ;//for main_nav_drawar
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,7 +109,7 @@ public class list_box extends AppCompatActivity implements PaymentResultListener
         plants.add("Watermelon");
         plants.add("Cherries");
         ArrayAdapter<String> plantAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, plants);
+                android.R.layout.simple_spinner_item, plants);// concatenation between plants name and my special spinner
         plantAdapter.setDropDownViewResource(R.layout.spinner_layout);
         plant_name.setAdapter(plantAdapter);
 //
@@ -120,9 +120,9 @@ public class list_box extends AppCompatActivity implements PaymentResultListener
             public void onClick(DialogInterface dialog, int which) {
                 // payment library
                 Checkout checkout = new Checkout();// checkout class
-                checkout.setKeyID("rzp_test_C2EodRkMQfOxSf");//from website
-//                checkout.setImage(R.id.rzp_innerbox);
-                JSONObject object = new JSONObject();
+                checkout.setKeyID("rzp_test_C2EodRkMQfOxSf");//id from website(api key)
+
+                JSONObject object = new JSONObject();// like map
                 String Samount = "50";
                 int a = Math.round(Float.parseFloat(Samount)*50);
                 try {
@@ -141,12 +141,6 @@ public class list_box extends AppCompatActivity implements PaymentResultListener
                     //SHOW ERROR
                     e.printStackTrace();
                 }
-//                if(name.getText().toString().isEmpty()){
-//                    return;
-//                }
-//                if(plant_name.getText().toString().isEmpty()){
-//                    return;
-//                }
 
             }
         });
@@ -185,7 +179,7 @@ public class list_box extends AppCompatActivity implements PaymentResultListener
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Pay id");
         builder.setMessage("Successful purchase");
-        Boxes boxes = new Boxes("https://i.imgur.com/8K3n51X.jpg",
+        Boxes boxes = new Boxes("@drawable/iconbox",
                 name.getText().toString(),
                 plant_name.getSelectedItem().toString(),
                 FirebaseAuth.getInstance().getCurrentUser().getUid()
@@ -212,7 +206,8 @@ public class list_box extends AppCompatActivity implements PaymentResultListener
     public void ClickProfile(View view){
         redirectActivity(this,Profile.class);
     }
-
+    public void Clickprivacypolicy(View view){redirectActivity(this,privacypolicy.class);}
+    public void Clickcontactus(View view){redirectActivity(this,contactus.class);}
     private void redirectActivity(Activity activity , Class aClass) {
         Intent obj = new Intent(activity,aClass);
         obj.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

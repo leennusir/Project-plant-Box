@@ -19,6 +19,7 @@
         <activity android:name=".ResultActivity"></activity>
         <activity android:name=".ImageProcess" />
         <activity android:name=".ChooseImagePhoto" />
+        <activity android:name=".Plants_information"></activity>
         <activity android:name=".LightSystem" />
         <activity android:name=".TemperatureSystem" />
         <activity android:name=".HumiditySystem" />
@@ -29,6 +30,8 @@
         <activity android:name=".Profile" />
         <activity android:name=".list_box" />
         <activity android:name=".RegisterUser" />
+        <activity android:name=".contactus" />
+        <activity android:name=".privacypolicy" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

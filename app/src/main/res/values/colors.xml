@@ -10,6 +10,10 @@
     <color name="green">#00692B</color>
     <color name="green2">#024D21</color>
     <color name="colorPrimary">#048998</color>
+    <color name="blue">#38D66D</color>
+    <color name="grey">#5F5D5D</color>
+    <color name="blue1">#6CF8AC</color>
+    <color name="blue2">#2EBE47</color>
     <color name="secundory">#E8C447</color>
     <color name="third">#E9E4E6</color>
     <color name="forth">#F6F5F5</color>
@@ -28,7 +32,8 @@
     <color name="cardView">#96EFA6</color>
     <color name="overlayBackground">#7f333639</color>
     <color name="overlayActionbar">#0e0d0e</color>
-
+    <color name="green4">#00692B</color>
+    <color name="green5">#048A3B</color>
 
 
 

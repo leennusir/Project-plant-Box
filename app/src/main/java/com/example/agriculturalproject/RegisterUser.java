@@ -27,10 +27,10 @@ import java.util.Collections;
 import java.util.Locale;
 
 public class RegisterUser extends AppCompatActivity {
-    EditText FirstName , LastName , EmailPhone,Password_reg, Confirm_reg ;
+    EditText FirstName , LastName , EmailPhone , Password_reg, Confirm_reg ;
     Button SignUp;
-    private FirebaseAuth mAuth;
-    Spinner select;
+    private FirebaseAuth mAuth;//register operation to fb
+    Spinner select;//to select city
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,17 +51,17 @@ public class RegisterUser extends AppCompatActivity {
 
          //SELECT CITY BUTTON (CODE)
         Locale[] locales = Locale.getAvailableLocales();//eVERY AVALBEL LOCATION
-        ArrayList<String> countries = new ArrayList<String>();
-        for (Locale locale : locales) {
-            String country = locale.getDisplayCountry();
-            if (country.trim().length() > 0 && !countries.contains(country)) {//IF COUNTRY LENGTH LESS THAN 0 AND NOT EXIST IN LIST
-                countries.add(country);
+        ArrayList<String> countries = new ArrayList<String>();//put them in array list (countries )
+        for (Locale locale : locales) {//loop in every local
+            String country = locale.getDisplayCountry();// extract country from local
+            if (country.trim().length() > 0 && !countries.contains(country)) {//IF COUNTRY LENGTH LESS THAN 0 (empty )AND EXIST IN LIST(country must be unique)
+                 countries.add(country);
             }
         }
 
-        Collections.sort(countries);
+        Collections.sort(countries);//alphabetical sort
 
-        ArrayAdapter<String> countryAdapter = new ArrayAdapter<String>(this,
+        ArrayAdapter<String> countryAdapter = new ArrayAdapter<String>(this,//for sppiner(store country in sppiner)
                 android.R.layout.simple_spinner_item, countries);
 
         countryAdapter.setDropDownViewResource(R.layout.spinner_layout);
@@ -115,18 +115,19 @@ public class RegisterUser extends AppCompatActivity {
 
                 //TO CHICK THE EMAIL FORMAT IS CORRECT
                 if(!Patterns.EMAIL_ADDRESS.matcher(edt_reg_email_str).matches()){
-                    Toast.makeText(RegisterUser.this, "This msh email ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterUser.this, "INCORRECT EMAIL", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 //TO MAKE RECORD IN FIREBASE
-                mAuth.createUserWithEmailAndPassword(edt_reg_email_str,edt_reg_pass_str).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                mAuth.createUserWithEmailAndPassword(edt_reg_email_str,edt_reg_pass_str).addOnCompleteListener(new OnCompleteListener<AuthResult>() {//add account in fb
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(RegisterUser.this, "The record success", Toast.LENGTH_SHORT).show();
-                            Users stu = new Users(edt_reg_f_name_str , edt_reg_l_name_str , edt_reg_email_str ,edt_reg_pass_str,edt_reg_select_city,"https://i.ibb.co/PNJXysd/blankprofilepicture973460640.png");//Object from record (insert realtime database)
-                            FirebaseDatabase.getInstance().getReference("Users").//هو المسؤول عن اضافة كلاسuser   في fb
-                                    child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(stu).
+                            Users user = new Users(edt_reg_f_name_str , edt_reg_l_name_str , edt_reg_email_str ,edt_reg_pass_str,edt_reg_select_city,"https://i.ibb.co/PNJXysd/blankprofilepicture973460640.png");
+                                                                                                                   //Object from record (insert realtime database)
+                            FirebaseDatabase.getInstance().getReference("Users").//هو المسؤول عن اضاف recourd  كلاسuser   في fb
+                                    child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user).
                                     addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
@@ -143,7 +144,7 @@ public class RegisterUser extends AppCompatActivity {
                                     });
 
                         }else {
-                            Toast.makeText(RegisterUser.this, "The registration not complete", Toast.LENGTH_SHORT).show();//to insert recored in Auth()
+                            Toast.makeText(RegisterUser.this, "The registration not complete", Toast.LENGTH_SHORT).show();//ont insert record in Auth()
 
                         }
 
@@ -159,7 +160,7 @@ public class RegisterUser extends AppCompatActivity {
                 switch (item.getItemId())
                 {
                     case R.id.register_back:
-                        finish();
+                        finish();//back to login home
 
                         break;
                 }

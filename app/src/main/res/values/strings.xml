@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Smart Farmer</string>
+    <string name="app_name">Smart Box</string>
     <string name="title_activity_home">Home</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -11,4 +11,13 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="contact_form">Contact Us</string>
+    <string name="contact_form_name">Your Name</string>
+    <string name="contact_form_email">Your Email</string>
+    <string name="contact_form_subject">Subject</string>
+    <string name="contact_form_message">Message</string>
+    <string name="contact_form_button">Send Message</string>
+    <string name="contact_form_post_message">Please wait! We\'re sending your message to the support department...</string>
+    <string name="contact_posted">Your message has been successfully delivered.</string>
+
 </resources>

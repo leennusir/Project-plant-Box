@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
     <ImageView
         android:layout_width="125dp"
@@ -50,17 +52,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="54dp"
+            android:layout_width="247dp"
+            android:layout_height="51dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
             android:layout_marginStart="15.5dp"
-            android:layout_marginTop="-1dp"
-            android:layout_marginEnd="146dp"
-            android:layout_marginBottom="437dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="137dp"
+            android:layout_marginBottom="7dp"
             android:gravity="center_vertical"
+            android:orientation="horizontal"
             android:onClick="ClickHome">
 
             <ImageView
@@ -74,10 +76,12 @@
                 android:layout_marginStart="16dp"
                 android:layout_weight="1"
                 android:padding="12px"
+                android:onClick="ClickHome"
                 android:text="Home"
                 android:textAlignment="viewStart"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:textStyle="italic"/>
 
 
         </LinearLayout>
@@ -89,7 +93,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="15.5dp"
-            android:layout_marginTop="49dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="137dp"
             android:layout_marginBottom="7dp"
             android:gravity="center_vertical"
@@ -104,6 +108,7 @@
                 android:src="@drawable/profile_icon" />
 
             <TextView
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -114,6 +119,70 @@
                 android:textAlignment="viewStart"
                 android:textSize="14sp"
                 android:textStyle="italic" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="247dp"
+            android:layout_height="51dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="15.5dp"
+            android:layout_marginTop="63dp"
+            android:layout_marginEnd="137dp"
+            android:layout_marginBottom="7dp"
+            android:gravity="center_vertical"
+            android:onClick="Clickcontactus"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/phone_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_weight="1"
+                android:padding="12px"
+                android:text="Contact Us"
+                android:textAlignment="viewStart"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="247dp"
+            android:layout_height="51dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="15.5dp"
+            android:layout_marginTop="98dp"
+            android:layout_marginEnd="137dp"
+            android:layout_marginBottom="7dp"
+            android:gravity="center_vertical"
+            android:onClick="Clickprivacypolicy"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/plicy_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_weight="1"
+                android:padding="12px"
+                android:text="Privacy Policy"
+                android:textAlignment="viewStart"
+                android:textSize="14sp" />
 
 
         </LinearLayout>
@@ -138,6 +207,7 @@
                 android:src="@drawable/log_out_icon" />
 
             <TextView
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"

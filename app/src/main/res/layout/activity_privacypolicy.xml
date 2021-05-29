@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_drawer_layout"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".privacypolicy">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="• Security"
+            android:textSize="20dp"
+            android:textColor="@color/green"
+            android:layout_marginTop="100dp">
+        </TextView>
+        <TextView
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="130dp"
+            android:layout_marginLeft="10dp"
+            android:text="We value your trust in providing us your Personal Information,thus we are striving to use commercially acceptable means of protecting it. But remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and we cannot guarantee its absolute security.">
+
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="• Changes to This Privacy Policy"
+            android:textSize="20dp"
+            android:textColor="@color/green"
+            android:layout_marginTop="245dp">
+        </TextView>
+        <TextView
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="275dp"
+            android:layout_marginLeft="10dp"
+            android:text="We may update our Privacy Policy from time to time.    Thus, you are advised to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page. These changes are effective immediately after they are posted on this page.">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="• Contact Us"
+            android:textSize="20dp"
+            android:textColor="@color/green"
+            android:layout_marginTop="370dp">
+        </TextView>
+        <TextView
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="400dp"
+            android:layout_marginLeft="10dp"
+            android:text="If you have any questions or suggestions about our   Privacy Policy, do not hesitate to contact us.">
+        </TextView>
+
+
+    </RelativeLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <include layout="@layout/main_toolbar" />
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/green2"
+            android:foregroundTint="@color/green2"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+
+            >
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottom_nav_privacypolicy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="20dp"
+                android:paddingTop="0dp"
+                app:itemBackground="@color/green2"
+                app:itemIconTint="@color/bottom_text"
+                app:itemTextColor="@color/bottom_text"
+                app:menu="@menu/bar_privacypolicy"
+                tools:ignore="NotSibling">
+
+            </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="-1dp"
+                android:layout_marginLeft="110dp"
+                android:layout_marginTop="50dp"
+                android:text="privacy policy"
+                android:textColor="@color/green2"
+                android:textSize="30dp"></TextView>
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/white">
+        <include layout="@layout/main_nav_drawer" />
+    </RelativeLayout>
+
+
+
+
+</androidx.drawerlayout.widget.DrawerLayout>
