@@ -46,6 +46,8 @@ public class ImageProcess extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_process);
+        getSupportActionBar().hide();//to hide tool bar
+
         plantImageView = findViewById(R.id.plantImageView);
         setImage();
         cancelButton = findViewById(R.id.cancelButton);
@@ -55,7 +57,7 @@ public class ImageProcess extends AppCompatActivity {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(ImageProcess.this, MainActivity.class);
+                Intent i = new Intent(ImageProcess.this, MainHome.class);
                 startActivity(i);
             }
         });
@@ -130,6 +132,7 @@ public class ImageProcess extends AppCompatActivity {
 
                 Intent j = new Intent(getBaseContext(), ResultActivity.class);
                 j.putExtra("result", response.body().string());//result
+                j.putExtra("image",imageUri);
                 startActivity(j);
 
             }
