@@ -8,6 +8,24 @@
     tools:context=".MainActivity">
 
     <Button
+        android:id="@+id/btn_log2"
+        android:layout_width="287dp"
+        android:layout_height="45dp"
+        android:backgroundTint="#FFFFFF"
+        android:drawableTint="#FFFFFF"
+        android:text="LOGIN"
+        android:textAlignment="center"
+        android:textColor="#00692B"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.131"
+        app:rippleColor="#FFFFFF" />
+
+    <Button
         android:id="@+id/btn_log"
         android:layout_width="287dp"
         android:layout_height="45dp"

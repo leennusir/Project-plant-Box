@@ -30,9 +30,9 @@ import com.google.firebase.database.ValueEventListener;
 public class MainActivity extends AppCompatActivity {
     EditText email_phone , password ;
     TextView forget ,crate;
-    Button login;
-    FirebaseAuth fAuth;//forget password
-    DatabaseReference databaseReference;//get anything i want from fb
+    Button login , api_python;
+    FirebaseAuth fAuth;
+    DatabaseReference databaseReference;
 
     private FirebaseAuth mAuth;//authentication(email,password)(to check the email and password correct from fb)
     @Override
@@ -50,8 +50,17 @@ public class MainActivity extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");//access to all data about this user
                                                                                         // Users==table
 
+        api_python = findViewById(R.id.btn_log2);
+        api_python.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ChooseImagePhoto.class));
 
-        crate.setOnClickListener(new View.OnClickListener() {//crate  new account
+            }
+        });
+        crate.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View v) {
 
