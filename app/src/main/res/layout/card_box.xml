@@ -35,7 +35,7 @@
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toTopOf="@+id/box_name"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.031"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
