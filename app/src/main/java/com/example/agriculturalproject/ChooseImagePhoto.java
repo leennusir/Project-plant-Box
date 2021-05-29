@@ -3,8 +3,8 @@ package com.example.agriculturalproject;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.FileProvider;
 
 import android.Manifest;
 import android.app.Activity;
@@ -19,7 +19,9 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.agriculturalproject.GlobalClasses.Global;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -30,21 +32,23 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class ChooseImagePhoto extends AppCompatActivity {
-    TextView choose_image  , camera;
+    CardView choose_image  , camera;
     private int RESULT_LOAD_IMG = 1003;
     private final  int PERMISSION_CODE = 1000;
     private final int IMAGE_CODE_CAPTURE = 1001;
     Uri imageUri_Camera ;
+    TextView name_users ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_image_photo);
-        choose_image = findViewById(R.id.add_image_plant);
+        getSupportActionBar().hide();//to hide tool bar
 
+        choose_image = findViewById(R.id.cardGallery);
+        name_users = findViewById(R.id.name_users);
+        name_users.setText("Welcome, " + Global.currentUser.getFirstName()+ " " + Global.currentUser.getLastName() );
         ActivityCompat.requestPermissions(ChooseImagePhoto.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
-        //permission access from studio to app
-        //request type
-        camera = findViewById(R.id.camera);
+        camera = findViewById(R.id.cardCamera);
         camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
