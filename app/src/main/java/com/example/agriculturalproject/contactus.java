@@ -93,6 +93,7 @@ public class contactus extends AppCompatActivity {
     }
     public void Clickprivacypolicy(View view){redirectActivityto(this,privacypolicy.class);}
     public void Clickcontactus(View view){redirectActivityto(this,contactus.class);}
+    public void Clickmap(View view){redirectActivityto(this,Map.class);}
 
     private void redirectActivityto(Activity activity , Class aClass) {
         Intent obj = new Intent(activity,aClass);

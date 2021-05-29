@@ -208,6 +208,7 @@ public class Profile extends AppCompatActivity {
     }
     public void Clickprivacypolicy(View view){redirectActivity(this,privacypolicy.class);}
     public void Clickcontactus(View view){redirectActivity(this,contactus.class);}
+    public void Clickmap(View view){redirectActivity(this,Map.class);}
 
     private void redirectActivity(Activity activity , Class aClass) {
         Intent obj = new Intent(activity,aClass);
