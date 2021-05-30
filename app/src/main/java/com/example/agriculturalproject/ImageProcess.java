@@ -49,12 +49,12 @@ public class ImageProcess extends AppCompatActivity {
         getSupportActionBar().hide();//to hide tool bar
 
         plantImageView = findViewById(R.id.plantImageView);
-        setImage();
+        setImage();//get img from choose page to imageProcess
         cancelButton = findViewById(R.id.cancelButton);
         confirmButton = findViewById(R.id.confirmButton);
         ActivityCompat.requestPermissions(ImageProcess.this, new String[]{Manifest.permission.INTERNET}, 2);
                                                                                       //INTERNET(request type 2) == allow to get img from page to another
-        cancelButton.setOnClickListener(new View.OnClickListener() {
+        cancelButton.setOnClickListener(new View.OnClickListener() {//back to home
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(ImageProcess.this, MainHome.class);
@@ -74,19 +74,22 @@ public class ImageProcess extends AppCompatActivity {
         String postUrl= "http://167.71.63.72:80/";//api link
         ByteArrayOutputStream stream = new ByteArrayOutputStream();//initialise ByteArray
         BitmapFactory.Options options = new BitmapFactory.Options();//initialise BitmapFactory
-        options.inPreferredConfig = Bitmap.Config.RGB_565;
+        options.inPreferredConfig = Bitmap.Config.RGB_565;//set pic to RGB(configration)
         try {
 
-            selectedImagePath = getPath(getApplicationContext(), imageUri);
+            selectedImagePath = getPath(getApplicationContext(), imageUri);//path image
             Bitmap bitmap = BitmapFactory.decodeFile(selectedImagePath, options);//convert img to Bitmap
             bitmap.compress(Bitmap.CompressFormat.JPEG , 100, stream);//best performance and store in stream
-            byte[] byteArray = stream.toByteArray();//convert img to zero ir one after store in byte array
+            byte[] byteArray = stream.toByteArray();//convert img to zero ir one after store in byte array cuz python only can read zero one
 
             RequestBody postBodyImage = new MultipartBody.Builder()//class initialise ,send photo to api python
                     .setType(MultipartBody.FORM)//form type
                     .addFormDataPart("image", "image.jpg", RequestBody.create(MediaType.parse("image/*jpg"), byteArray))
                     .build();
-
+            //name = image
+            //filename = image.png
+            //RequestBody.create(MediaType.parse("image/*jpg") == condition just image and jpg
+            //byteArray image (byte)
             Toast.makeText(this, "Please wait ...", Toast.LENGTH_SHORT).show();
 
             postRequest(postUrl, postBodyImage);
@@ -129,10 +132,9 @@ public class ImageProcess extends AppCompatActivity {
 
             @Override
             public void onResponse(Call call, final Response response) throws IOException {
-
                 Intent j = new Intent(getBaseContext(), ResultActivity.class);
                 j.putExtra("result", response.body().string());//result
-                j.putExtra("image",imageUri);
+                j.putExtra("image",imageUri);//img to show
                 startActivity(j);
 
             }
@@ -144,7 +146,6 @@ public class ImageProcess extends AppCompatActivity {
         Bundle ex = getIntent().getExtras();
         imageUri = ex.getParcelable("ImageUri");
         plantImageView.setImageURI(imageUri);
-
     }
 
 

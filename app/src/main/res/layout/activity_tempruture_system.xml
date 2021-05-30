@@ -20,10 +20,12 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="105dp"
-            android:layout_marginTop="230dp"
+            android:layout_marginTop="300dp"
             android:layout_marginEnd="105dp">
 
             <!--progress bar for humidity implementation-->
+
+            <!--Text implementation in center of the progress bar humidity-->
             <ProgressBar
                 android:id="@+id/progress_bar_temperature"
                 style="?android:attr/progressBarStyleHorizontal"
@@ -36,7 +38,6 @@
                 android:radius="6dp"
                 android:textAlignment="center" />
 
-            <!--Text implementation in center of the progress bar humidity-->
             <TextView
                 android:id="@+id/progress_text_temperature"
                 android:layout_width="wrap_content"
