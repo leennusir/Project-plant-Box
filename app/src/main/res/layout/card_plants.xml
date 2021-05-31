@@ -19,8 +19,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/green2"
-        android:backgroundTint="@color/green2"
+        android:background="@drawable/box2"
+
         android:gravity="center"
         android:orientation="vertical"
         android:padding="10dp">
@@ -28,13 +28,15 @@
 
         <ImageView
             android:id="@+id/plant_card_image"
-            android:layout_width="98dp"
-            android:layout_height="104dp"
-            android:background="@drawable/icons8_box_500"
+            android:layout_width="67dp"
+            android:layout_height="69dp"
+            android:layout_marginTop="10dp"
+
             android:padding="0dp"
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toTopOf="@+id/plant_card_name"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.092"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -45,13 +47,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="8dp"
-            android:background="@color/design_default_color_surface"
+            android:background="@color/green4"
             android:gravity="center"
             android:padding="10dp"
             android:text="Name of Menu"
-            android:textColor="@color/green2"
-            android:textColorLink="@color/green2"
+            android:textColor="@color/white"
+            android:textColorLink="@color/white"
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/plant_card_image"

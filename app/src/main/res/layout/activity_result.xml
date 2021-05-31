@@ -38,7 +38,7 @@
         android:id="@+id/di_button_rest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_settings_backup_restore_24"
+        android:src="@drawable/add"
         android:backgroundTint="@color/green2"
         app:elevation="6dp"
         app:pressedTranslationZ="12dp"
@@ -79,7 +79,7 @@
                         android:layout_marginTop="8dp"
                         android:padding="12dp"
                         android:text="Name of Plant"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/green2"
                         android:textSize="25dp"
                         android:textStyle="bold">
 

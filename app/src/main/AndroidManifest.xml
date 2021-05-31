@@ -20,14 +20,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AgriculturalProject">
 
+       <activity android:name=".ResultActivity"></activity>
+
         <meta-data android:name="com.google.android.geo.API_KEY"
             android:value="@string/map_key"/>
 
         <activity android:name=".ResultActivity"></activity>
+
         <activity android:name=".ImageProcess" />
         <activity android:name=".ChooseImagePhoto" />
 
         <activity android:name=".Plants_information"></activity>
+        7ec11ce2fac2738c7fe7e3628b40d8b36e4780ed
+
 
         <activity android:name=".LightSystem" />
         <activity android:name="Map"/>
