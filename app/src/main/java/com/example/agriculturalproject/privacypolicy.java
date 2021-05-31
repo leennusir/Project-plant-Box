@@ -61,6 +61,7 @@ public class privacypolicy extends AppCompatActivity {
     public void ClickProfile(View view){
         redirectActivity(this,Profile.class);
     }
+    public void Clickmap(View view){redirectActivity(this,Map.class);}
     public void Clickcontactus(View view)
     { redirectActivity(this,contactus.class); }
 

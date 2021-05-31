@@ -83,6 +83,7 @@
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
             android:foreground="@drawable/plant22"
+           
             app:cardCornerRadius="8dp"
             app:cardElevation="6dp">
 
