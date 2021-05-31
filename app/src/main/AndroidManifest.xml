@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AgriculturalProject">
-        <activity android:name=".LightSystem"></activity>
+        <activity android:name=".Voice"></activity>
+        <activity android:name=".LightSystem" />
         <activity android:name=".TemperatureSystem" />
         <activity android:name=".HumiditySystem" />
         <activity android:name=".WaterSystem" />
