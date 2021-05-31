@@ -20,8 +20,9 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="105dp"
-            android:layout_marginTop="300dp"
-            android:layout_marginEnd="105dp">
+            android:layout_marginTop="220dp"
+            android:layout_marginEnd="105dp"
+            android:layout_marginBottom="105dp">
 
             <!--progress bar for humidity implementation-->
 
