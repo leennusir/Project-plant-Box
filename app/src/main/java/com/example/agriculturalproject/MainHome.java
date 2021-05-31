@@ -17,7 +17,7 @@ public class MainHome extends AppCompatActivity {
     DrawerLayout drawerLayout ; // for navigation
     TextView nav_email,nav_name;
 
-    CardView card1 , card2  ;
+    CardView card1 , card2 ,card3  ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,13 @@ public class MainHome extends AppCompatActivity {
         nav_name.setText(Global.currentUser.getFirstName() + " "+ Global.currentUser.getLastName() );
         card1 = findViewById(R.id.cardViewWater);
         card2 = findViewById(R.id.cardViewHumidity);
-
+        card3 = findViewById(R.id.cardMl);
+        card3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainHome.this,ChooseImagePhoto.class));
+            }
+        });
         card1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
