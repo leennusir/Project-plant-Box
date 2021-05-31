@@ -1,10 +1,12 @@
 package com.example.agriculturalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -38,7 +40,7 @@ public class PlantsList extends AppCompatActivity {
 
         recyclerPlants = findViewById(R.id.recycle_plant);//recycle_plant==هو اللي بنعرض جواته البوكسات
         recyclerPlants.setHasFixedSize(true);//to make recyclerview Fixed
-        recyclerPlants.setLayoutManager(new GridLayoutManager(this , 2));//1 or any num card in the same line(ع السطر الواحد كم بوكس)
+        recyclerPlants.setLayoutManager(new GridLayoutManager(this , 1));//1 or any num card in the same line(ع السطر الواحد كم بوكس)
         Plant = FirebaseDatabase.getInstance().getReference("Plants"); //Boxes table from firebase
         getPlants(); //function(call)
         nav_email = findViewById(R.id.txt_view_email);
@@ -57,11 +59,54 @@ public class PlantsList extends AppCompatActivity {
                 adapter_plants.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int pos, boolean isLongClick) {
-                        Toast.makeText(PlantsList.this, "", Toast.LENGTH_SHORT).show();
+                        Global.currentPlants = plants;
+                        startActivity(new Intent(PlantsList.this,Plants_information.class));
                     }
                 });
             }
         };
         recyclerPlants.setAdapter(related_Plants);
+    }
+    public void OpenMenu(View view){
+        openDrawer(drawerLayout);
+    }
+
+
+    private static void openDrawer(DrawerLayout drawerLayout) {
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+    public void ClickLogo(View view){
+        closeDrawer(drawerLayout);
+    }
+    public void ClickProfile(View view){
+        redirectActivity(this,Profile.class);
+    }
+    public void Clickprivacypolicy(View view){redirectActivity(this,privacypolicy.class);}
+    public void Clickcontactus(View view){redirectActivity(this,contactus.class);}
+
+    private void redirectActivity(Activity activity , Class aClass) {
+        Intent obj = new Intent(activity,aClass);
+        obj.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        activity.startActivity(obj);
+    }
+
+    public void ClickHome(View view){
+        redirectActivity(this,MainHome.class);
+    }
+    public void ClickLogout(View view){
+        redirectActivity(this,MainActivity.class);
+
+    }
+
+    private static void closeDrawer(DrawerLayout drawerLayout) {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        closeDrawer(drawerLayout);
     }
 }

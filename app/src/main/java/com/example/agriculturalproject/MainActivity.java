@@ -30,15 +30,17 @@ import com.google.firebase.database.ValueEventListener;
 public class MainActivity extends AppCompatActivity {
     EditText email_phone , password ;
     TextView forget ,crate;
-    Button login;
-    FirebaseAuth fAuth;//forget password
-    DatabaseReference databaseReference;//get anything i want from fb
+    Button login ;
+    FirebaseAuth fAuth;
+    DatabaseReference databaseReference;
 
     private FirebaseAuth mAuth;//authentication(email,password)(to check the email and password correct from fb)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().hide();//to hide tool bar
+
         mAuth = FirebaseAuth.getInstance();
 
         email_phone = findViewById(R.id.edt_email_phone);
@@ -51,7 +53,9 @@ public class MainActivity extends AppCompatActivity {
                                                                                         // Users==table
 
 
-        crate.setOnClickListener(new View.OnClickListener() {//crate  new account
+        crate.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View v) {
 

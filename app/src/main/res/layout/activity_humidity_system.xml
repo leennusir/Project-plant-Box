@@ -7,144 +7,149 @@
     android:layout_height="match_parent"
     android:id="@+id/main_drawer_layout"
     tools:context=".HumiditySystem">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="60dp">
-        <RelativeLayout
-            android:id="@+id/progress_layout"
-            android:layout_width="200dp"
-            android:layout_height="200dp">
-
-            <!--progress bar for humidity implementation-->
-            <ProgressBar
-                android:radius="6dp"
-                android:id="@+id/progress_bar_humidity"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/circular_shape"
-                android:indeterminate="false"
-                android:progressDrawable="@drawable/circular_progress_bar"
-                android:textAlignment="center"
-                android:gravity="center_horizontal"
-                />
-
-            <!--Text implementation in center of the progress bar humidity-->
-            <TextView
-                android:id="@+id/progress_text_humidity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:gravity="center"
-                android:text="---"
-                android:textColor="@color/blue"
-                android:textSize="28sp"
-                android:textStyle="bold" />
 
 
-        </RelativeLayout>
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="60dp">
-        <RelativeLayout
-            android:id="@+id/progress_layout_soil"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginLeft="190dp">
-            <!--progress bar for soil masure implementation-->
-            <ProgressBar
-
-                android:radius="6dp"
-                android:id="@+id/progress_bar_soil"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/circular_shape"
-                android:indeterminate="false"
-                android:progressDrawable="@drawable/circular_progress_bar_solir"
-                android:textAlignment="center"
-                android:gravity="center_horizontal"
-                android:max="100"
-                />
-
-            <!--Text implementation in center of soil masure progress bar-->
-            <TextView
-                android:id="@+id/progress_text_soil"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:gravity="center"
-                android:text="---"
-                android:textColor="@color/blue"
-                android:textSize="28sp"
-                android:textStyle="bold" />
-
-        </RelativeLayout>
-    </RelativeLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
         <include layout="@layout/main_toolbar"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/humsysinterface">
 
-        <EditText
-            android:id="@+id/editTextTextPersonName7"
-            android:layout_width="173dp"
-            android:layout_height="64dp"
-            android:layout_marginEnd="136dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="AC"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.8" />
+            <RelativeLayout
+                android:id="@+id/progress_layout"
 
-        <EditText
-            android:id="@+id/editTextTextPersonName6"
-            android:layout_width="173dp"
-            android:layout_height="64dp"
-            android:layout_marginEnd="136dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Fan"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.529" />
+                android:layout_width="159dp"
+                android:layout_height="157dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="125dp"
+                android:layout_marginTop="145dp"
+                android:layout_marginEnd="125dp">
+
+                <!--progress bar for humidity implementation-->
+
+                <!--Text implementation in center of the progress bar humidity-->
+
+                <ProgressBar
+                    android:id="@+id/progress_bar_humidity"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/circular_shape"
+                    android:gravity="center_horizontal"
+                    android:indeterminate="false"
+                    android:progressDrawable="@drawable/circular_progress_bar"
+                    android:radius="6dp"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/progress_text_humidity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:text="---"
+                    android:textColor="@color/blue"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
 
 
+            </RelativeLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="60dp">
 
+            <RelativeLayout
+                android:id="@+id/progress_layout_soil"
+                android:layout_width="159dp"
+                android:layout_height="157dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="125dp"
+                android:layout_marginTop="355dp"
+                android:layout_marginEnd="125dp">
+
+                <!--progress bar for soil masure implementation-->
+
+                <!--Text implementation in center of soil masure progress bar-->
+                <ProgressBar
+
+                    android:id="@+id/progress_bar_soil"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="159dp"
+
+                    android:layout_height="157dp"
+                    android:background="@drawable/circular_shape"
+                    android:gravity="center_horizontal"
+                    android:indeterminate="false"
+                    android:max="100"
+                    android:progressDrawable="@drawable/circular_progress_bar_solir"
+                    android:radius="6dp"
+                    android:textAlignment="center"
+
+                    />
+
+                <TextView
+                    android:id="@+id/progress_text_soil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:text="---"
+                    android:textColor="@color/green4"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/plant_humidity_fan"
-            android:layout_width="137dp"
-            android:layout_height="38dp"
+            android:layout_width="111dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="193dp"
+            android:layout_marginTop="430dp"
+            android:background="@drawable/buttongreen"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.372"
+            app:layout_constraintHorizontal_bias="0.543"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.653" />
+            app:layout_constraintVertical_bias="0.658" />
 
         <TextView
             android:id="@+id/plant_humidity_AC"
-            android:layout_width="137dp"
-            android:layout_height="38dp"
+            android:layout_width="111dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="193dp"
+            android:layout_marginTop="320dp"
+            android:background="@drawable/buttongreen"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.445"
+            app:layout_constraintHorizontal_bias="0.543"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.901" />
+            app:layout_constraintVertical_bias="0.658" />
 
 
         <RelativeLayout

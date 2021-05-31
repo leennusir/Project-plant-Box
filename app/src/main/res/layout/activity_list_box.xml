@@ -15,8 +15,8 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycle_box"
-            android:layout_width="388dp"
-            android:layout_height="582dp"
+            android:layout_width="418dp"
+            android:layout_height="619dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
