@@ -66,12 +66,11 @@ public class Map extends FragmentActivity implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
       //  LatLng latLng = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
         //this is my location now
-        LatLng latLng = new LatLng(32.5284403,35.8607009);
-
+        LatLng latLng = new LatLng(32.578442,35.846340);
         MarkerOptions markerOptions = new MarkerOptions().position(latLng)
                 .title("this is me");
         googleMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 7));
+        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 5));
         googleMap.addMarker(markerOptions);
 
 
