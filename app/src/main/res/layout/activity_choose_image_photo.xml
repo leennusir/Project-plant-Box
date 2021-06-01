@@ -120,6 +120,23 @@
 
 
 
+
     </LinearLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav_ml"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="20dp"
+        android:paddingTop="0dp"
+        app:itemBackground="@color/green2"
+        app:itemIconTint="@color/bottom_text"
+        app:itemTextColor="@color/bottom_text"
+        app:menu="@menu/bar_ml"
+        tools:ignore="NotSibling">
+
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
 
 </LinearLayout>

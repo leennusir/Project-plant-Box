@@ -17,11 +17,13 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.agriculturalproject.GlobalClasses.Global;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.jetbrains.annotations.NotNull;
@@ -77,6 +79,24 @@ public class ChooseImagePhoto extends AppCompatActivity {
                 goToGallery(); // Gallery simulation
             }
         });
+        BottomNavigationView btmNav = findViewById(R.id.bottom_nav_ml);//take FROM layout()
+        btmNav.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+            @Override
+            public void onNavigationItemReselected(@NonNull MenuItem item) {
+                switch (item.getItemId())
+                {
+                    case R.id.back_ml://back to last page
+                        //take from menu(bar_profile.xml)
+                        finish();
+
+                        break;
+
+
+                }
+
+            }
+
+        });
     }
 
     private void openCamera() {
@@ -121,7 +141,9 @@ public class ChooseImagePhoto extends AppCompatActivity {
         Intent i = new Intent(this, ImageProcess.class);
         i.putExtra("ImageUri", imageUri);//path photo
         startActivity(i);//intent
+
     }
+
 
 
 
