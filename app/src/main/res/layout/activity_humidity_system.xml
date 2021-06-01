@@ -47,7 +47,6 @@
                     android:progressDrawable="@drawable/circular_progress_bar"
                     android:radius="6dp"
                     android:textAlignment="center" />
-
                 <TextView
                     android:id="@+id/progress_text_humidity"
                     android:layout_width="wrap_content"
