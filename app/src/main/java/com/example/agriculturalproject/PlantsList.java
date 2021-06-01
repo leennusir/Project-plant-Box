@@ -1,5 +1,6 @@
 package com.example.agriculturalproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +22,7 @@ import com.example.agriculturalproject.InterFace.ItemClickListener;
 import com.example.agriculturalproject.Models.Boxes;
 import com.example.agriculturalproject.Models.Plants;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -48,6 +51,25 @@ public class PlantsList extends AppCompatActivity {
 
         nav_name = findViewById(R.id.txt_view_name);
         nav_name.setText(Global.currentUser.getFirstName() + " "+ Global.currentUser.getLastName() );
+
+        BottomNavigationView btmNav = findViewById(R.id.bottom_nav_guide);//take FROM layout()
+        btmNav.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+            @Override
+            public void onNavigationItemReselected(@NonNull MenuItem item) {
+                switch (item.getItemId())
+                {
+                    case R.id.back_guide://back to last page
+                        //take from menu(bar_profile.xml)
+                        finish();
+
+                        break;
+
+
+                }
+
+            }
+
+        });
     }
 
     private void getPlants() {

@@ -24,7 +24,35 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.789" />
 
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
 
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottom_nav_guide"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="20dp"
+                android:paddingTop="0dp"
+                app:itemBackground="@color/green2"
+                app:itemIconTint="@color/bottom_text"
+                app:itemTextColor="@color/bottom_text"
+                app:menu="@menu/bar_guide"
+                tools:ignore="NotSibling">
+
+            </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+        </RelativeLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <RelativeLayout
@@ -36,5 +64,7 @@
 
         <include layout="@layout/main_nav_drawer"/>
     </RelativeLayout>
+
+
 
 </androidx.drawerlayout.widget.DrawerLayout>

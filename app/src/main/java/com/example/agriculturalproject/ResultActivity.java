@@ -1,15 +1,18 @@
 package com.example.agriculturalproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Arrays;
@@ -44,6 +47,28 @@ public class ResultActivity extends AppCompatActivity {
                 Arrays.fill(arrOfStr, null);
                 startActivity(i);
             }
+        });
+        BottomNavigationView btmNav = findViewById(R.id.bottom_nav_result);//take FROM layout()
+        btmNav.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+            @Override
+            public void onNavigationItemReselected(@NonNull MenuItem item) {
+                switch (item.getItemId())
+                {
+                    case R.id.back_result://back to last page
+                        //take from menu(bar_profile.xml)
+                        finish();
+
+                        break;
+                    case R.id.back_result_home://back to last page
+                        startActivity(new Intent(ResultActivity.this,MainHome.class));
+
+                        break;
+
+
+                }
+
+            }
+
         });
 
     }

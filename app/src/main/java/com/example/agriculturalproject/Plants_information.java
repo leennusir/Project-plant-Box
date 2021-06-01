@@ -42,6 +42,7 @@ public class Plants_information extends TutorialActivity {
                 .setSummary("4")
                 .build());
     }
+
     @Override
     public void finishTutorial() {
 finish();
@@ -50,4 +51,5 @@ finish();
     public void currentFragmentPosition(int position) {
 
     }
+
 }
