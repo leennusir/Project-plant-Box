@@ -83,7 +83,11 @@
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
 
-            android:foreground="@drawable/p1"
+
+            android:foreground="@drawable/p2"
+
+            
+
            
 
             app:cardCornerRadius="8dp"
