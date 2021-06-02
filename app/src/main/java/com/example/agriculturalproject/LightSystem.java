@@ -77,7 +77,7 @@ public class LightSystem extends AppCompatActivity {
 
                         }
                     }
-                }, 30000);
+                }, 3000);
             }
         });
         Box.addValueEventListener(new ValueEventListener() {
